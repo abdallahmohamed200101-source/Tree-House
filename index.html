@@ -46,6 +46,10 @@
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .card img:hover { transform: scale(1.05); }
 
+        /* Video */
+        .video-section { margin-top: 40px; text-align: center; }
+        .video-section video, .video-section img { width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; margin: 20px auto; }
+
         /* Specs */
         .specs-section { margin-top: 60px; text-align: center; }
         .specs-title { color: var(--primary); font-size: 32px; margin-bottom: 30px; font-weight: 800; }
@@ -76,6 +80,7 @@
             .specs-img { width: 100%; max-width: 400px; margin-bottom: 20px; }
             .hero h1 { font-size: 35px; }
             .hero { min-height: 60vh; background-size: cover; background-position: center; }
+            .video-section video, .video-section img { width: 100%; }
         }
     </style>
 </head>
@@ -107,6 +112,15 @@
         <div class="fb-page" data-href="https://www.facebook.com/share/r/1LVBgUhJXC/" data-tabs="photos" data-width="100%" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
         <div id="fb-root"></div>
         <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v17.0"></script>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <video controls>
+                <source src="ABDA.MP4" type="video/mp4">
+                متصفحك لا يدعم عرض الفيديو.
+            </video>
+            <img src="ABDO.JPG" alt="صورة ABDO">
+        </div>
 
         <div class="specs-section">
             <h2 class="specs-title">لماذا تختار TreeHouse؟</h2>

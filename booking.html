@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز معاينة - TreeHouse Kitchens</title>
+    
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --hover-color: #1b5e20;
+            --bg-color: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: var(--white);
+            max-width: 450px;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(46, 125, 50, 0.2);
+        }
+
+        .note-box {
+            background: #e8f5e9;
+            border-right: 5px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #2e7d32;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-confirm {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-confirm:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .btn-back:hover {
+            background-color: #e0e0e0;
+        }
+
+        small {
+            display: block;
+            margin-top: 4px;
+            color: #888;
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌿 حجز موعد معاينة</h2>
+
+    <div class="note-box">
+        ⚠️ <b>ملاحظة هامة:</b><br>
+        تكلفة المعاينة يتم دفعها للمهندس عند الزيارة، و <b>تُخصم بالكامل</b> من إجمالي المبلغ عند البدء التعاقد 
+    </div>
+
+    <div class="form-group">
+        <label for="name">الاسم بالكامل:</label>
+        <input type="text" id="name" placeholder="مثال: أحمد محمد علي">
+    </div>
+
+    <div class="form-group">
+        <label for="phone">رقم الموبايل المصري:</label>
+        <input type="tel" id="phone" placeholder="01xxxxxxxxx">
+    </div>
+
+    <div class="form-group">
+        <label for="address">العنوان بالتفصيل:</label>
+        <textarea id="address" rows="2" placeholder="المنطقة، اسم الشارع، رقم العمارة والدور"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="location">رابط الموقع (Google Maps):</label>
+        <input type="text" id="location" placeholder="انسخ رابط اللوكيشن من الخرائط">
+    </div>
+
+    <div class="form-group">
+        <label for="date">موعد تواجد شخص مسؤول بالموقع:</label>
+        <input type="datetime-local" id="date">
+        <small>يرجى اختيار تاريخ ووقت يناسبكم لاستقبال المهندس.</small>
+    </div>
+
+    <div class="button-group">
+        <button class="btn-confirm" onclick="submitForm()">تأكيد الحجز ✅</button>
+        <button class="btn-back" onclick="goBack()">رجوع</button>
+    </div>
+</div>
+
+<script>
+    // 1. منع اختيار تاريخ قديم (تلقائياً عند تحميل الصفحة)
+    window.onload = function() {
+        const dateInput = document.getElementById('date');
+        const now = new Date();
+        // تنسيق الوقت الحالي ليناسب input datetime-local
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        dateInput.min = now.toISOString().slice(0, 16);
+    };
+
+    function submitForm() {
+        // سحب البيانات مع إزالة المسافات الزائدة
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const address = document.getElementById("address").value.trim();
+        const locationUrl = document.getElementById("location").value.trim();
+        const dateValue = document.getElementById("date").value;
+
+        // 2. التحقق من الحقول الفارغة
+        if (!name || !phone || !address || !locationUrl || !dateValue) {
+            alert("عفواً، يرجى ملء كافة البيانات المطلوبة.");
+            return;
+        }
+
+        // 3. التحقق من صحة رقم الموبايل (11 رقم يبدأ بـ 01)
+        const phoneRegex = /^01[0125][0-9]{8}$/;
+        if (!phoneRegex.test(phone)) {
+            alert("يرجى إدخال رقم موبايل مصري صحيح مكون من 11 رقم.");
+            return;
+        }
+
+        // 4. تنسيق الوقت ليظهر بشكل جميل في الرسالة
+        const formattedDate = dateValue.replace('T', ' الوقت: ');
+
+        // 5. تجهيز نص رسالة الواتساب
+        const message = `*طلب حجز معاينة (TreeHouse Kitchens)*\n\n` +
+                        `👤 *الاسم:* ${name}\n` +
+                        `📞 *الموبايل:* ${phone}\n` +
+                        `🏠 *العنوان:* ${address}\n` +
+                        `📍 *اللوكيشن:* ${locationUrl}\n` +
+                        `⏱ *موعد التواجد:* ${formattedDate}\n\n` +
+                        `--------------------------\n` +
+                        `💡 _العميل على علم بخصم تكلفة المعاينة عند التعاقد_`;
+
+        // 6. فتح واتساب
+        const whatsappNumber = "201554872957";
+        const finalUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        
+        window.open(finalUrl, '_blank');
+    }
+
+    function goBack() {
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

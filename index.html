@@ -43,8 +43,13 @@
 
         .section { padding: 60px 8%; text-align: center; }
         
-        .gallery-container { max-width: 850px; margin: 30px auto 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
-        .gallery-container iframe { width: 100%; height: 480px; display: block; border: none; }
+        /* ضبط الفيديو للموبايل والكمبيوتر */
+        .gallery-wrapper { 
+            max-width: 850px; margin: 30px auto 0; position: relative; 
+            padding-bottom: 56.25%; height: 0; overflow: hidden; 
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); 
+        }
+        .gallery-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         .specs-container { 
             background: white; padding: 30px; border-radius: 25px; margin-top: 30px; 
@@ -71,7 +76,12 @@
         footer { background: var(--primary); color: white; padding: 60px 20px 30px; text-align: center; }
         .eng-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; margin-bottom: 15px; object-fit: cover; }
 
-        @media (max-width: 768px) { .specs-container { flex-direction: column-reverse; } .gallery-container iframe { height: 250px; } .p-card { width: 100%; } }
+        @media (max-width: 768px) { 
+            .section { padding: 40px 4%; }
+            .gallery-wrapper { border-radius: 12px; width: 100%; }
+            .specs-container { flex-direction: column-reverse; } 
+            .p-card { width: 100%; } 
+        }
     </style>
 </head>
 <body>
@@ -100,28 +110,26 @@
     </section>
 
     <section class="section reveal" style="background-color: #f9f9f9;">
-        <h2 style="margin-bottom: 30px; font-size: 2.2rem;">معرض أعمالنا 📸</h2>
-        <div class="gallery-container">
-            <iframe src="https://www.youtube.com/embed/WUpZKvYz1gE" loading="lazy" frameborder="0" allowfullscreen></iframe>
+        <h2 style="margin-bottom: 30px; font-size: 2rem;">معرض أعمالنا 📸</h2>
+        <div class="gallery-wrapper">
+            <iframe src="https://www.youtube.com/embed/WUpZKvYz1gE?rel=0" allowfullscreen></iframe>
         </div>
     </section>
 
     <section class="section reveal">
-        <h2 style="color: var(--primary); margin-bottom: 35px; font-size: 2.2rem;">لماذا تختار Tree House؟</h2>
+        <h2 style="color: var(--primary); margin-bottom: 35px; font-size: 2rem;">لماذا تختار Tree House؟</h2>
         <div class="specs-container">
             <div class="specs-image">
                 <img src="image_5.jpeg" alt="Tree House Kitchen Design">
             </div>
-            
             <ul class="specs-list">
                 <li><strong>ضمان حقيقي:</strong> 10 سنوات ضد عيوب الصناعة مع صيانة مدى الحياة.</li>
-                <li><strong>شاسيه كونتر:</strong> جود وود (Good Wood) / فانيه / فيرست وود - طبقتين HPL أبيض.</li>
+                <li><strong>شاسيه كونتر:</strong> جود وود (Good Wood) / فانيا / فيرست وود - طبقتين HPL أبيض.</li>
                 <li><strong>إكسسوارات عالمية:</strong> مفصلات إيطالي أو إسباني Soft Close لحركة سلسة.</li>
                 <li><strong>متانة فائقة:</strong> تعليق علوي وأرجل سفلية تركية أصلية.</li>
                 <li><strong>وزر اسود ستانلس:</strong> مضاد للبكتيريا ومقاوم للمياه، سهل الفك والتركيب.</li>
             </ul>
         </div>
-
         <div style="margin-top: 25px;">
             <a href="faq.html" style="color: var(--primary); text-decoration: none; font-weight: bold; border-bottom: 2px solid var(--primary); padding-bottom: 2px;">
                 لمزيد من التفاصيل والاستفسارات، اقرأ الأسئلة الشائعة <i class="fas fa-arrow-left" style="font-size: 12px; margin-right: 5px;"></i>
@@ -132,7 +140,6 @@
     <section class="section reveal" style="background-color: #efefc5;">
         <h2 style="margin-bottom: 10px;">أسعار الخامات</h2>
         <p style="color: var(--primary); font-weight: bold; margin-bottom: 30px;">(الحساب بالمتر المربع لضمان الشفافية)</p>
-        
         <div class="price-cards">
             <div class="p-card">
                 <h3>HPL & PVC</h3>
@@ -143,7 +150,6 @@
                     <a href="https://drive.google.com/file/d/1doYBtI6Rmd2rP4u0ajxEtepfCk8qpUuK/view?usp=drive_link" target="_blank" class="catalog-btn"><i class="fas fa-file-pdf"></i> كتالوج Stillay PVC</a>
                 </div>
             </div>
-
             <div class="p-card" style="border-top-color: var(--gold);">
                 <h3 style="color: var(--gold);">Polylac</h3>
                 <span class="price-val" style="color: var(--gold);">7200</span>
@@ -159,7 +165,7 @@
         <div class="reveal">
             <img src="abdelrahman_moetaz.jpg" alt="Engineer" class="eng-img">
             <p style="font-size: 24px; font-weight: 800; margin-bottom: 8px;">بإشراف م/ عبدالرحمن معتز</p>
-            <p style="margin-bottom: 10px;">📍 التجمع الخامس - شارع التسعين الشمالى - مول بزنس بلس</p>
+            <p style="margin-bottom: 10px;">📍 التجمع الخامس - مول بزنس بلس - شارع التسعين الشمالي</p>
             <div style="margin-top: 15px;">
                 <a href="tel:01554872957" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); padding: 12px 25px; border-radius: 50px; color: white; text-decoration: none; font-size: 22px; font-weight: bold; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;">
                     <i class="fas fa-phone-alt"></i> 01554872957

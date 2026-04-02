@@ -10,7 +10,6 @@
         :root {
             --primary: #2e7d32;
             --gold: #d4a017;
-            --pvc-color: #5d4037;
             --text-dark: #333;
         }
 
@@ -42,19 +41,21 @@
         .specs-list li { margin-bottom: 15px; padding-right: 35px; position: relative; line-height: 1.6; }
         .specs-list li::before { content: '✔'; position: absolute; right: 0; color: var(--primary); font-weight: bold; }
 
-        .price-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .p-card { background: white; padding: 30px; border-radius: 20px; width: 300px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 6px solid var(--primary); transition: 0.3s; }
+        .price-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
+        .p-card { background: white; padding: 35px; border-radius: 25px; width: 340px; box-shadow: 0 5px 25px rgba(0,0,0,0.06); border-top: 6px solid var(--primary); transition: 0.3s; }
         .p-card:hover { transform: translateY(-10px); }
-        .price-val { font-size: 40px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
-        .unit-note { font-size: 13px; color: #666; font-weight: bold; margin-bottom: 15px; display: block; }
+        .price-val { font-size: 42px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
+        .unit-note { font-size: 14px; color: #666; font-weight: bold; margin-bottom: 20px; display: block; }
         
-        .catalog-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border: 2px dashed var(--primary); color: var(--primary); text-decoration: none; border-radius: 10px; font-size: 14px; font-weight: bold; transition: 0.3s; }
-        .catalog-btn:hover { background: var(--primary); color: white; }
+        /* تنسيق الأزرار داخل المربع */
+        .catalog-group { display: flex; flex-direction: column; gap: 12px; }
+        .catalog-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border: 2px dashed var(--primary); color: var(--primary); text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: bold; transition: 0.3s; }
+        .catalog-btn:hover { background: var(--primary); color: white; border-style: solid; }
 
         footer { background: var(--primary); color: white; padding: 60px 20px 20px; text-align: center; }
         .eng-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; margin-bottom: 15px; object-fit: cover; }
 
-        @media (max-width: 768px) { .hero { height: 70vh; } .section { padding: 40px 5%; } }
+        @media (max-width: 768px) { .hero { height: 70vh; } .section { padding: 40px 5%; } .p-card { width: 100%; } }
     </style>
 </head>
 <body>
@@ -101,34 +102,34 @@
 
     <section class="section reveal" style="background-color: #efefc5;">
         <h2 style="margin-bottom: 10px;">أسعار الخامات</h2>
-        <p style="color: var(--primary); font-weight: bold; margin-bottom: 30px;">أكثر من 500 لون متاح في الكتالوجات (الحساب بالمتر المربع)</p>
+        <p style="color: var(--primary); font-weight: bold; margin-bottom: 30px;">(الحساب بالمتر المربع لضمان الشفافية)</p>
         
         <div class="price-cards">
             <div class="p-card">
-                <h3>HPL - PVC</h3>
+                <h3>HPL & Stillay PVC</h3>
                 <span class="price-val">5700</span>
                 <span class="unit-note">جنيه / م²</span>
-                <a href="https://drive.google.com/file/d/1i2MCj95G2tBfLhLKPQQJv7dSP_36daiU/view?usp=sharing" target="_blank" class="catalog-btn">
-                    <i class="fas fa-file-pdf"></i> كتالوج Greenlam HPL
-                </a>
+                
+                <div class="catalog-group">
+                    <a href="https://drive.google.com/file/d/1i2MCj95G2tBfLhLKPQQJv7dSP_36daiU/view?usp=sharing" target="_blank" class="catalog-btn">
+                        <i class="fas fa-file-pdf"></i> كتالوج Greenlam HPL
+                    </a>
+                    <a href="https://drive.google.com/file/d/1doYBtI6Rmd2rP4u0ajxEtepfCk8qpUuK/view?usp=drive_link" target="_blank" class="catalog-btn">
+                        <i class="fas fa-file-pdf"></i> كتالوج Stillay PVC
+                    </a>
+                </div>
             </div>
 
             <div class="p-card" style="border-top-color: var(--gold);">
                 <h3 style="color: var(--gold);">Polylac</h3>
                 <span class="price-val" style="color: var(--gold);">7200</span>
                 <span class="unit-note">جنيه / م²</span>
-                <a href="https://drive.google.com/file/d/1r8y7JBq8wgZ1BKJVL07K-VbIcv1yyXlv/view?usp=sharing" target="_blank" class="catalog-btn" style="border-color: var(--gold); color: var(--gold);">
-                    <i class="fas fa-file-pdf"></i> كتالوج Gizir Polylac
-                </a>
-            </div>
-
-            <div class="p-card" style="border-top-color: var(--pvc-color);">
-                <h3 style="color: var(--pvc-color);">Stillay PVC</h3>
-                <span class="price-val" style="color: var(--pvc-color);">5700</span>
-                <span class="unit-note">جنيه / م²</span>
-                <a href="https://drive.google.com/file/d/1doYBtI6Rmd2rP4u0ajxEtepfCk8qpUuK/view?usp=drive_link" target="_blank" class="catalog-btn" style="border-color: var(--pvc-color); color: var(--pvc-color);">
-                    <i class="fas fa-file-pdf"></i> كتالوج Stillay PVC
-                </a>
+                
+                <div class="catalog-group">
+                    <a href="https://drive.google.com/file/d/1r8y7JBq8wgZ1BKJVL07K-VbIcv1yyXlv/view?usp=sharing" target="_blank" class="catalog-btn" style="border-color: var(--gold); color: var(--gold);">
+                        <i class="fas fa-file-pdf"></i> كتالوج Gizir Polylac
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -139,6 +140,10 @@
             <p style="font-size: 24px; font-weight: 800;">بإشراف م/ عبدالرحمن معتز</p>
             <p>📍 التجمع الخامس - مول بزنس بلس - شارع التسعين الشمالي</p>
             <p style="font-size: 22px; font-weight: bold; margin-top: 5px;">📱 01554872957</p>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2026 جميع الحقوق محفوظة لشركة <strong>Tree House Kitchens</strong>
         </div>
     </footer>
 

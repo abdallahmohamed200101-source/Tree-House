@@ -10,96 +10,99 @@
 
     <style>
         :root {
-            --primary: #2e7d32; /* أخضر داكن */
+            --primary: #2e7d32;
             --gold: #d4a017;
             --soft-white: #fdfdfd;
             --glass: rgba(255, 255, 255, 0.15);
             --text-dark: #333;
         }
 
+        /* تحسين التمرير السلس */
+        html { scroll-behavior: smooth; }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5dc; color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
 
+        /* أنظمة الحركة - Hidden by default */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
         /* Floating Social */
         .floating-social { position: fixed; left: 20px; bottom: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
-        .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.3); color: #333; text-decoration: none; font-size: 24px; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .wa-btn:hover { background: #25d366; color: white; border-color: #25d366; transform: scale(1.1); }
-        .fb-btn:hover { background: #1877f2; color: white; border-color: #1877f2; transform: scale(1.1); }
-        .tk-btn:hover { background: #000; color: white; border-color: #000; transform: scale(1.1); }
+        .social-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: white; color: #333; text-decoration: none; font-size: 22px; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .wa-btn:hover { background: #25d366; color: white; transform: scale(1.1); }
+        .fb-btn:hover { background: #1877f2; color: white; transform: scale(1.1); }
+        .tk-btn:hover { background: #000; color: white; transform: scale(1.1); }
 
         /* Header */
-        header { background: #f5f5dc; padding: 15px 8%; display: flex; justify-content: center; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        header { background: #f5f5dc; padding: 10px 5%; display: flex; justify-content: center; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .logo-container { display: flex; align-items: center; gap: 10px; }
-        .logo-img { max-height: 85px; height: auto; }
-        .logo-text { font-size: 28px; font-weight: 800; color: var(--primary); }
+        .logo-img { max-height: 70px; height: auto; }
+        .logo-text { font-size: 24px; font-weight: 800; color: var(--primary); }
 
-        /* Hero */
+        /* Hero Section - Optimized for Mobile & Web */
         .hero {
-            min-height: 75vh;
+            position: relative;
+            width: 100%;
+            min-height: 80vh; /* طول مناسب للويب */
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
             color: white;
-            padding: 0 10px;
-            background: url('image_4.jpg') center/cover no-repeat;
-            background-attachment: scroll;
+            text-align: center;
+            overflow: hidden;
         }
-        .hero h1 { font-size: clamp(30px, 6vw, 55px); font-weight: 800; margin-bottom: 15px; }
-        .btn-booking { background: var(--primary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; }
-        .btn-booking:hover { transform: scale(1.05); background: #226025; }
+
+        /* خلفية الهيرو لضمان ضبط المقاس */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('image_4.jpg') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .hero-content { padding: 20px; }
+        .hero h1 { font-size: clamp(28px, 8vw, 60px); font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        
+        .btn-booking { background: var(--primary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; margin-top: 20px; box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4); }
+        .btn-booking:hover { transform: translateY(-3px); background: #226025; }
 
         /* Sections */
-        .section { padding: 80px 8%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-
-        /* Video Section */
-        .video-section { margin-top: 40px; text-align: center; }
-        .video-section iframe, .video-section img { width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; margin: 20px auto; }
+        .section { padding: 60px 5%; text-align: center; }
 
         /* Specs Section */
-        .specs-section { margin-top: 60px; text-align: center; }
-        .specs-title { color: var(--primary); font-size: 32px; margin-bottom: 30px; font-weight: 800; }
-        .specs-container { display: flex; align-items: center; gap: 40px; background: #fff; padding: 40px; border-radius: 20px; flex-wrap: wrap; text-align: right; box-shadow: 0 10px 30px rgba(0,0,0,0.05); justify-content: center; }
-        .specs-img { width: 350px; height: auto; border-radius: 12px; }
-        .specs-list { flex: 1; list-style: none; min-width: 300px; }
-        .specs-list li { margin-bottom: 15px; font-size: 19px; padding-right: 35px; position: relative; font-weight: 500; line-height: 1.8; color: var(--text-dark); }
-        .specs-list li::before { content: '✔'; position: absolute; right: 0; color: var(--primary); font-weight: bold; font-size: 22px; }
+        .specs-container { display: flex; align-items: center; gap: 30px; background: #fff; padding: 30px; border-radius: 20px; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 30px; }
+        .specs-img { width: 100%; max-width: 450px; border-radius: 12px; object-fit: cover; }
+        .specs-list { flex: 1; list-style: none; text-align: right; }
+        .specs-list li { margin-bottom: 12px; font-size: 18px; padding-right: 30px; position: relative; }
+        .specs-list li::before { content: '✔'; position: absolute; right: 0; color: var(--primary); font-weight: bold; }
 
-        /* Pricing Section */
-        .pricing-sec { background: var(--primary); color: white; padding: 80px 8%; text-align: center; }
-        .price-cards { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 40px; }
-        .p-card { border: 1px solid rgba(255,255,255,0.1); padding: 40px; width: 300px; border-radius: 12px; transition: 0.3s; background: #f5f5dc; color: var(--text-dark); }
-        .p-card:hover { border-color: var(--gold); background: rgba(255,255,255,0.1); transform: translateY(-5px); }
-        .price-val { font-size: 45px; font-weight: 800; color: var(--gold); display: block; margin: 10px 0; }
+        /* Pricing Card Improvements */
+        .price-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .p-card { background: white; padding: 30px; width: 280px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-top: 5px solid var(--primary); }
+        .p-card.featured { border-top-color: var(--gold); transform: scale(1.05); }
+        .price-val { font-size: 40px; font-weight: 800; color: var(--primary); display: block; }
 
         /* Footer */
-        footer { background: var(--primary); color: #fff; padding: 60px 8%; text-align: center; }
-        .eng-tag { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 35px; }
-        .eng-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
-        .eng-name { font-size: 26px; font-weight: bold; }
+        footer { background: var(--primary); color: #fff; padding: 40px 5%; text-align: center; }
+        .eng-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; margin-bottom: 15px; }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            header { flex-direction: column; align-items: center; gap: 10px; padding: 10px 5%; }
-            .logo-container { flex-direction: column; gap: 5px; }
-            .hero { min-height: 60vh; background-size: cover; background-position: center; padding: 0 10px; }
-            .hero h1 { font-size: 28px; }
-            .hero p { font-size: 1rem; }
-            .grid { grid-template-columns: 1fr; gap: 15px; }
-            .specs-container { flex-direction: column; text-align: center; padding: 20px; }
-            .specs-img { width: 100%; max-width: 400px; margin-bottom: 20px; }
-            .video-section iframe, .video-section img { width: 100%; height: auto; max-width: 100%; margin: 10px 0; }
-            .price-cards { flex-direction: column; gap: 15px; }
-            .p-card { width: 100%; max-width: 300px; margin: 0 auto; }
+            .hero { min-height: 60vh; }
+            .specs-container { flex-direction: column; }
+            .p-card.featured { transform: scale(1); }
+            .floating-social { left: 10px; bottom: 20px; }
+            .social-btn { width: 45px; height: 45px; font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
     <div class="floating-social">
-        <a href="https://wa.me/201554872957" class="social-btn wa-btn" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/share/18H9nt8Jy6/" class="social-btn fb-btn" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@treehousekitchens" class="social-btn tk-btn" aria-label="تيك توك"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/201554872957" class="social-btn wa-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/18H9nt8Jy6/" class="social-btn fb-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@treehousekitchens" class="social-btn tk-btn"><i class="fab fa-tiktok"></i></a>
     </div>
 
     <header>
@@ -110,56 +113,49 @@
     </header>
 
     <section class="hero">
-        <div>
+        <div class="hero-bg"></div>
+        <div class="hero-content reveal">
             <h1>TREEHOUSE KITCHENS</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 25px;">المطبخ الذكي المستوحى من الطبيعة</p>
-            <a href="booking.html" class="btn-booking"> احجز معاينة الآن</a>
+            <p style="font-size: 1.3rem;">المطبخ الذكي المستوحى من الطبيعة</p>
+            <a href="booking.html" class="btn-booking">احجز معاينة الآن</a>
         </div>
     </section>
 
-    <section class="section">
-        <h2 style="font-size: 32px;">معرض أعمالنا 📸</h2>
-        <div class="fb-page" data-href="https://www.facebook.com/share/r/1LVBgUhJXC/" data-tabs="photos" data-width="100%" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"></div>
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v17.0"></script>
-
+    <section class="section reveal">
+        <h2 style="margin-bottom: 30px;">معرض أعمالنا 📸</h2>
         <div class="video-section">
-            <iframe width="100%" height="500" 
+            <iframe width="100%" height="400" 
                 src="https://www.youtube.com/embed/WUpZKvYz1gE" 
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
+                loading="lazy" frameborder="0" allowfullscreen
+                style="border-radius: 15px; max-width: 800px;">
             </iframe>
-            <img src="ABDO.jpg" alt="ABDO" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-        </div>
-
-        <div class="specs-section">
-            <h2 class="specs-title">لماذا تختار TreeHouse؟</h2>
-            <div class="specs-container">
-                <div class="specs-text">
-                    <ul class="specs-list">
-                        <li>ضمان حقيقي لمدة 10 سنوات ضد عيوب الصناعة.</li>
-                        <li>صيانة دورية مدى الحياة لجميع عملائنا.</li>
-                        <li>شاسيه كونتر عالي الجودة مع مفصلات Soft Close.</li>
-                        <li>حساب دقيق بالمتر المربع لضمان الشفافية الكاملة.</li>
-                        <li>وزر سفلي ستانلس مضاد للبكتيريا ومقاوم للمياه.</li>
-                    </ul>
-                </div>
-                <img src="image_5.jpeg" alt="Specs" class="specs-img" loading="lazy">
-            </div>
         </div>
     </section>
 
-    <section class="pricing-sec">
-        <h2>اسعار الخامات</h2>
+    <section class="section reveal">
+        <h2 style="color: var(--primary);">لماذا تختار TreeHouse؟</h2>
+        <div class="specs-container">
+            <img src="image_5.jpeg" alt="Specs" class="specs-img">
+            <ul class="specs-list">
+                <li>ضمان حقيقي لمدة 10 سنوات.</li>
+                <li>صيانة دورية مدى الحياة.</li>
+                <li>شاسيه كونتر عالي الجودة.</li>
+                <li>حساب دقيق بالمتر المربع للشفافية.</li>
+                <li>وزر سفلي ستانلس مضاد للمياه.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section reveal" style="background: #ececb9;">
+        <h2>أسعار الخامات</h2>
         <div class="price-cards">
             <div class="p-card">
                 <h3>HPL - PVC</h3>
                 <span class="price-val">5700</span>
                 <p>جنية / م²</p>
             </div>
-            <div class="p-card" style="border-color: var(--gold);">
-                <div style="background: var(--gold); color: white; padding: 2px 10px; border-radius: 4px; font-size: 12px; display: inline-block; margin-bottom: 10px;">الأكثر فخامة</div>
+            <div class="p-card featured">
+                <div style="color: var(--gold); font-weight: bold; font-size: 14px;">الأكثر فخامة</div>
                 <h3>Polylac</h3>
                 <span class="price-val">7200</span>
                 <p>جنية / م²</p>
@@ -168,14 +164,31 @@
     </section>
 
     <footer>
-        <div class="eng-tag">
-            <img src="abdelrahman_moetaz.jpg" alt="المهندس عبدالرحمن معتز" class="eng-img" loading="lazy">
-            <div class="eng-name">بإشراف م/ عبدالرحمن معتز</div>
+        <div class="reveal">
+            <img src="abdelrahman_moetaz.jpg" alt="المهندس عبدالرحمن معتز" class="eng-img">
+            <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">بإشراف م/ عبدالرحمن معتز</div>
+            <p>📍 التجمع الخامس - مول بزنس بلس</p>
+            <p>📱 01554872957</p>
+            <p style="margin-top: 20px; opacity: 0.6; font-size: 12px;">&copy; 2026 TreeHouse Kitchens.</p>
         </div>
-        <p>📍 التجمع الخامس - مول بزنس بلس - شارع التسعين الشمالي</p>
-        <p>📱 01554872957</p>
-        <p style="margin-top: 30px; font-size: 11px; opacity: 0.4;">&copy; 2026 TreeHouse Kitchens. جميع الحقوق محفوظة.</p>
     </footer>
+
+    <script>
+        // سكربت تفعيل الحركة عند التمرير
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>

@@ -35,20 +35,50 @@
 
         /* Hero */
         .hero {
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 0 10px;
-            background: url('image_4.jpg') center/cover no-repeat;
-            background-attachment: scroll;
-        }
-        .hero h1 { font-size: clamp(30px, 6vw, 55px); font-weight: 800; margin-bottom: 15px; }
-        .btn-booking { background: var(--primary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; }
-        .btn-booking:hover { transform: scale(1.05); background: #226025; }
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 15px;
 
+    background: url('image_4.jpg') center center / cover no-repeat;
+    background-attachment: scroll;
+
+    position: relative;
+}
+
+/* طبقة خفيفة على الصورة */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+}
+
+/* النص فوق الصورة */
+.hero > div {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive للموبايل */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 45vh; /* تقليل الحجم على الموبايل */
+        background-size: cover;
+        background-position: center top; /* يظبط مكان الصورة */
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+}
         /* Sections */
         .section { padding: 80px 8%; text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }

@@ -1,311 +1,251 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TreeHouse Kitchens | Smart Design</title>
-    
-    <link rel="icon" type="image/png" href="image_6.png?v=1.1">
-    <link rel="apple-touch-icon" href="image_6.png?v=1.1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TreeHouse Kitchens | Smart Design</title>
 
-    <!-- فونت احترافي -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="image_6.png">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary: #2e7d32;
-            --gold: #d4a017;
-            --text-dark: #333;
-        }
+<style>
+:root { --primary:#2e7d32; --gold:#d4a017; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: #f5f5dc;
-            overflow-x: hidden;
-            color: var(--text-dark);
-        }
+body{
+font-family:'Cairo',sans-serif;
+background:#f5f5dc;
+overflow-x:hidden;
+}
 
-        img {
-            transition: 0.4s;
-        }
+.reveal{opacity:0;transform:translateY(30px);transition:.8s;}
+.reveal.active{opacity:1;transform:translateY(0);}
 
-        img:hover {
-            transform: scale(1.05);
-        }
+img{transition:.4s;}
+img:hover{transform:scale(1.05);}
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+/* سوشيال */
+.floating-social{
+position:fixed;
+left:15px;
+bottom:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:2000;
+}
+.social-btn{
+width:50px;height:50px;background:#fff;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:22px;text-decoration:none;
+box-shadow:0 4px 15px rgba(0,0,0,.2);
+transition:.3s;
+}
+.social-btn:hover{transform:scale(1.1) translateY(-5px);}
 
-        /* سوشيال */
-        .floating-social {
-            position: fixed;
-            left: 15px;
-            bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 2000;
-        }
+/* header */
+header{
+display:flex;justify-content:space-between;align-items:center;
+padding:10px 5%;background:#f5f5dc;position:sticky;top:0;
+}
+.header-brand{display:flex;align-items:center;gap:10px;}
+.logo-img{height:45px;}
+.brand-name{font-weight:900;color:var(--primary);}
 
-        .social-btn {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-decoration: none;
-            transition: 0.3s;
-        }
+.faq-nav-btn{
+border:2px solid var(--primary);
+padding:8px 15px;border-radius:20px;
+text-decoration:none;color:var(--primary);
+}
+.faq-nav-btn:hover{background:var(--primary);color:#fff;}
 
-        .social-btn:hover {
-            transform: scale(1.1) translateY(-5px);
-        }
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;}
+.hero-bg{
+position:absolute;width:100%;height:100%;
+background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('ABDO.jpg');
+background-size:cover;background-position:center;
+}
+.hero-content{position:relative;color:#fff;text-align:center;}
+.hero h1{font-size:clamp(35px,8vw,65px);}
 
-        /* الهيدر */
-        header {
-            background: #f5f5dc;
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.btn-booking{
+background:linear-gradient(135deg,#2e7d32,#43a047);
+color:#fff;padding:15px 35px;border-radius:50px;
+text-decoration:none;display:inline-block;margin-top:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+.btn-booking:hover{transform:scale(1.05);}
 
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+/* sections */
+.section{padding:60px 8%;text-align:center;}
 
-        .brand-name {
-            font-size: clamp(20px, 5vw, 28px);
-            font-weight: 900;
-            color: var(--primary);
-        }
+/* video */
+.shorts-wrapper{
+max-width:350px;margin:20px auto;
+position:relative;padding-bottom:180%;
+border-radius:25px;overflow:hidden;background:#000;
+}
+.shorts-wrapper iframe{position:absolute;width:100%;height:100%;}
 
-        .logo-img {
-            max-height: 50px;
-        }
+/* specs */
+.specs-container{
+display:flex;flex-wrap:wrap;gap:30px;
+background:#fff;padding:30px;border-radius:25px;margin-top:20px;
+}
+.specs-image{flex:1;min-width:300px;}
+.specs-image img{width:100%;border-radius:20px;}
+.specs-list{flex:1;list-style:none;text-align:right;}
+.specs-list li{margin-bottom:10px;padding-right:25px;position:relative;}
+.specs-list li::before{content:"✔";position:absolute;right:0;color:var(--primary);}
 
-        .faq-nav-btn {
-            color: var(--primary);
-            font-weight: bold;
-            border: 2px solid var(--primary);
-            padding: 8px 15px;
-            border-radius: 20px;
-            text-decoration: none;
-        }
+/* prices */
+.price-cards{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;}
+.p-card{
+background:#fff;padding:30px;border-radius:20px;width:320px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+border-top:5px solid var(--primary);
+transition:.3s;
+}
+.p-card:hover{transform:translateY(-10px);}
+.price-val{font-size:40px;font-weight:800;color:var(--primary);}
 
-        .faq-nav-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
+/* catalog */
+.catalog-group{margin-top:15px;display:flex;flex-direction:column;gap:10px;}
+.catalog-btn{
+padding:10px;border:2px dashed var(--primary);
+text-decoration:none;color:var(--primary);
+border-radius:10px;font-weight:bold;
+}
+.catalog-btn:hover{background:var(--primary);color:#fff;}
 
-        /* HERO */
-        .hero {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 20px;
-        }
+/* footer */
+footer{background:var(--primary);color:#fff;padding:50px;text-align:center;}
 
-        .hero-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('ABDO.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content {
-            position: relative;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: clamp(30px, 7vw, 60px);
-        }
-
-        .btn-booking {
-            background: linear-gradient(135deg, #2e7d32, #43a047);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 25px;
-            transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn-booking:hover {
-            transform: translateY(-3px) scale(1.05);
-        }
-
-        .section {
-            padding: 60px 8%;
-            text-align: center;
-        }
-
-        /* فيديو */
-        .shorts-wrapper {
-            max-width: 350px;
-            margin: 20px auto;
-            position: relative;
-            padding-bottom: 180%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 25px;
-            background: #000;
-        }
-
-        .shorts-wrapper iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* كروت */
-        .price-cards {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .p-card {
-            background: white;
-            padding: 35px;
-            border-radius: 25px;
-            width: 340px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
-            border-top: 6px solid var(--primary);
-            transition: 0.4s;
-        }
-
-        .p-card:hover {
-            transform: translateY(-12px) scale(1.02);
-        }
-
-        .price-val {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        /* موبايل */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 75vh;
-            }
-
-            .hero h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+/* mobile */
+@media(max-width:768px){
+.hero{min-height:75vh;}
+.hero h1{font-size:28px;}
+.specs-container{flex-direction:column-reverse;}
+}
+</style>
 </head>
 
 <body>
 
 <!-- سوشيال -->
 <div class="floating-social">
-    <a href="https://wa.me/201554872957" class="social-btn" style="color:#25d366;"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.facebook.com/share/18H9nt8Jy6/" class="social-btn" style="color:#1877f2;"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.tiktok.com/@treehousekitchens" class="social-btn"><i class="fab fa-tiktok"></i></a>
+<a href="https://wa.me/201554872957" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+<a href="https://facebook.com" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+<a href="https://tiktok.com" class="social-btn"><i class="fab fa-tiktok"></i></a>
 </div>
 
 <header>
-    <div class="header-brand">
-        <img src="image_6.png" class="logo-img">
-        <span class="brand-name">Tree House</span>
-    </div>
-    <a href="faq.html" class="faq-nav-btn">الأسئلة الشائعة</a>
+<div class="header-brand">
+<img src="image_6.png" class="logo-img">
+<span class="brand-name">Tree House</span>
+</div>
+<a href="faq.html" class="faq-nav-btn">الأسئلة الشائعة</a>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content reveal">
-        <h1>TREE HOUSE KITCHENS</h1>
-        <p>المطبخ الذكي المستوحى من الطبيعة</p>
-        <a href="https://wa.me/201554872957" class="btn-booking">احجز معاينة الآن</a>
-    </div>
+<div class="hero-bg"></div>
+<div class="hero-content reveal">
+<h1>TREE HOUSE KITCHENS</h1>
+<p>المطبخ الذكي المستوحى من الطبيعة</p>
+<a href="https://wa.me/201554872957" class="btn-booking">احجز معاينة الآن</a>
+</div>
 </section>
 
 <!-- فيديو -->
 <section class="section reveal" style="background:#f9f9f9;">
-    <h2>معرض أعمالنا 📸</h2>
+<h2>معرض أعمالنا 📸</h2>
 
-    <p style="font-weight:bold; color:var(--primary); margin-top:10px;">
-        🔥 شوف الجودة على الطبيعة — شغلنا بيتكلم
-    </p>
+<p style="color:var(--primary);font-weight:bold;">
+🔥 شوف الجودة بنفسك
+</p>
 
-    <a href="https://wa.me/201554872957" class="btn-booking">
-        احجز معاينة بعد ما تشوف الفيديو 👇
-    </a>
+<a href="https://wa.me/201554872957" class="btn-booking">
+احجز بعد الفيديو 👇
+</a>
 
-    <div class="shorts-wrapper">
-        <iframe 
-        src="https://www.youtube.com/embed/WUpZKvYz1gE?autoplay=1&mute=1&loop=1&playlist=WUpZKvYz1gE&controls=0"
-        allow="autoplay"
-        allowfullscreen></iframe>
-    </div>
+<div class="shorts-wrapper">
+<iframe src="https://www.youtube.com/embed/WUpZKvYz1gE?autoplay=1&mute=1&loop=1&playlist=WUpZKvYz1gE&controls=0"></iframe>
+</div>
 </section>
 
-<!-- أسعار -->
-<section class="section" style="background:#efefc5;">
-    <h2>أسعار الخامات</h2>
-    <div class="price-cards">
-        <div class="p-card">
-            <h3>HPL & PVC</h3>
-            <span class="price-val">5700</span>
-            <p>جنيه / م²</p>
-        </div>
+<!-- لماذا تختارنا -->
+<section class="section reveal">
+<h2 style="color:var(--primary);">لماذا تختار Tree House؟</h2>
 
-        <div class="p-card" style="border-top-color:gold;">
-            <h3 style="color:gold;">Polylac</h3>
-            <span class="price-val" style="color:gold;">7200</span>
-            <p>جنيه / م²</p>
-        </div>
-    </div>
+<div class="specs-container">
+<div class="specs-image">
+<img src="image_5.jpeg">
+</div>
+
+<ul class="specs-list">
+<li>ضمان 10 سنوات</li>
+<li>خامات مستوردة</li>
+<li>سوفت كلوز</li>
+<li>متانة عالية</li>
+</ul>
+</div>
+</section>
+
+<!-- الأسعار -->
+<section class="section" style="background:#efefc5;">
+<h2>الأسعار</h2>
+
+<div class="price-cards">
+
+<div class="p-card">
+<h3>HPL & PVC</h3>
+<span class="price-val">5700</span>
+<p>جنيه / م²</p>
+
+<div class="catalog-group">
+<a href="#" class="catalog-btn">📄 كتالوج HPL</a>
+<a href="#" class="catalog-btn">📄 كتالوج PVC</a>
+</div>
+</div>
+
+<div class="p-card" style="border-top-color:gold;">
+<h3 style="color:gold;">Polylac</h3>
+<span class="price-val" style="color:gold;">7200</span>
+<p>جنيه / م²</p>
+
+<div class="catalog-group">
+<a href="#" class="catalog-btn">📄 كتالوج Polylac</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section reveal" style="background:#f9f9f9;">
+<h2>الأسئلة الشائعة</h2>
+
+<div style="max-width:600px;margin:auto;text-align:right;">
+<p><strong>هل فيه ضمان؟</strong><br>نعم 10 سنوات</p>
+<p><strong>مدة التنفيذ؟</strong><br>من 10 لـ 15 يوم</p>
+<p><strong>المعاينة مجانية؟</strong><br>نعم</p>
+</div>
 </section>
 
 <footer>
-    <p>📞 01554872957</p>
-    <p>© 2026 Tree House Kitchens</p>
+<p>📞 01554872957</p>
+<p>© 2026 Tree House Kitchens</p>
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add('active');
-        }
-    });
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('active');}
+});
 });
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>

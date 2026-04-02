@@ -43,11 +43,9 @@
 
         .section { padding: 60px 8%; text-align: center; }
         
-        /* تنسيق معرض الأعمال */
         .gallery-container { max-width: 850px; margin: 30px auto 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         .gallery-container iframe { width: 100%; height: 480px; display: block; border: none; }
 
-        /* تنسيق قسم المواصفات مع الصورة */
         .specs-container { 
             background: white; padding: 30px; border-radius: 25px; margin-top: 30px; 
             display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: center; 
@@ -65,6 +63,11 @@
         .p-card:hover { transform: translateY(-10px); }
         .price-val { font-size: 42px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
         .unit-note { font-size: 14px; color: #666; font-weight: bold; margin-bottom: 20px; display: block; }
+
+        /* تنسيق أزرار الكتالوج */
+        .catalog-group { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+        .catalog-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border: 2px dashed var(--primary); color: var(--primary); text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: bold; transition: 0.3s; }
+        .catalog-btn:hover { background: var(--primary); color: white; border-style: solid; }
 
         footer { background: var(--primary); color: white; padding: 60px 20px 30px; text-align: center; }
         .eng-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; margin-bottom: 15px; object-fit: cover; }
@@ -130,12 +133,19 @@
                 <h3>HPL & PVC</h3>
                 <span class="price-val">5700</span>
                 <span class="unit-note">جنيه / م²</span>
+                <div class="catalog-group">
+                    <a href="https://drive.google.com/file/d/1i2MCj95G2tBfLhLKPQQJv7dSP_36daiU/view?usp=sharing" target="_blank" class="catalog-btn"><i class="fas fa-file-pdf"></i> كتالوج Greenlam HPL</a>
+                    <a href="https://drive.google.com/file/d/1doYBtI6Rmd2rP4u0ajxEtepfCk8qpUuK/view?usp=drive_link" target="_blank" class="catalog-btn"><i class="fas fa-file-pdf"></i> كتالوج Stillay PVC</a>
+                </div>
             </div>
 
             <div class="p-card" style="border-top-color: var(--gold);">
                 <h3 style="color: var(--gold);">Polylac</h3>
                 <span class="price-val" style="color: var(--gold);">7200</span>
                 <span class="unit-note">جنيه / م²</span>
+                <div class="catalog-group">
+                    <a href="https://drive.google.com/file/d/1r8y7JBq8wgZ1BKJVL07K-VbIcv1yyXlv/view?usp=sharing" target="_blank" class="catalog-btn" style="border-color: var(--gold); color: var(--gold);"><i class="fas fa-file-pdf"></i> كتالوج Gizir Polylac</a>
+                </div>
             </div>
         </div>
     </section>

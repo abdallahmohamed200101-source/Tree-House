@@ -12,7 +12,6 @@
         :root {
             --primary: #2e7d32; 
             --gold: #d4a017;
-            --dark: #1b3e1b; /* أخضر داكن للفوتر */
             --soft-white: #fdfdfd;
             --glass: rgba(255, 255, 255, 0.15);
         }
@@ -39,9 +38,8 @@
             text-align: center;
             color: white;
             padding: 0 10px;
-            background: linear-gradient(rgba(46,125,50,0.5), rgba(46,125,50,0.5)), url('image_4.jpg') center/cover no-repeat;
+            background: url('image_4.jpg') center/cover no-repeat;
             background-attachment: scroll;
-            transition: 0.5s;
         }
         .hero h1 { font-size: clamp(30px, 6vw, 55px); font-weight: 800; margin-bottom: 15px; }
         .btn-booking { background: var(--primary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; display: inline-block; }
@@ -70,7 +68,7 @@
         .p-card:hover { border-color: var(--gold); background: rgba(255,255,255,0.03); transform: translateY(-5px); }
         .price-val { font-size: 45px; font-weight: 800; color: var(--gold); display: block; margin: 10px 0; }
 
-        footer { background: var(--dark); color: #fff; padding: 60px 8%; text-align: center; }
+        footer { background: #1b3e1b; color: #fff; padding: 60px 8%; text-align: center; }
         .eng-tag { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 35px; }
         .eng-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid #fff; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
         .eng-name { font-size: 26px; font-weight: bold; }

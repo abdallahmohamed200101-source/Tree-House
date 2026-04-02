@@ -15,7 +15,6 @@
             --primary: #2e7d32;
             --gold: #d4a017;
             --text-dark: #333;
-            --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,68 +23,42 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* أنميشن السوشيال ميديا */
         .floating-social { position: fixed; left: 20px; bottom: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 2000; }
-        .social-btn { 
-            width: 55px; height: 55px; background: white; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-size: 24px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition-smooth); text-decoration: none; 
-        }
-        .social-btn:hover { transform: scale(1.15) translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .social-btn { width: 55px; height: 55px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.4s; text-decoration: none; }
+        .social-btn:hover { transform: scale(1.1); }
 
-        /* الهيدر المحدث */
-        header { 
-            background: #f5f5dc; padding: 10px 5%; 
-            display: flex; justify-content: space-between; align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; 
-        }
-        .header-brand { display: flex; align-items: center; gap: 15px; }
-        .brand-name { font-size: clamp(18px, 4vw, 28px); font-weight: 900; color: var(--primary); text-transform: uppercase; }
+        header { background: #f5f5dc; padding: 10px 5%; display: flex; flex-direction: row; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; gap: 15px; }
+        .brand-name { font-size: clamp(20px, 5vw, 28px); font-weight: 900; color: var(--primary); text-transform: uppercase; }
         .logo-img { max-height: 50px; width: auto; }
-        
-        .faq-nav-btn {
-            text-decoration: none; color: var(--primary); font-weight: bold; font-size: 14px;
-            border: 2px solid var(--primary); padding: 8px 15px; border-radius: 20px; transition: var(--transition-smooth);
-        }
-        .faq-nav-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
 
         .hero { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #1a1a1a; }
         .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('ABDO.jpg'); background-size: cover; background-position: center; z-index: 1; }
         .hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 20px; }
         .hero h1 { font-size: clamp(35px, 8vw, 65px); font-weight: 900; }
-        
-        /* أنميشن زر الحجز */
-        .btn-booking { 
-            background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; 
-            text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; 
-            transition: var(--transition-smooth); box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
-        }
-        .btn-booking:hover { transform: scale(1.05) translateY(-3px); box-shadow: 0 6px 20px rgba(46, 125, 50, 0.5); }
+        .btn-booking { background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; transition: 0.3s; }
 
         .section { padding: 60px 8%; text-align: center; }
         .gallery-container { max-width: 850px; margin: 30px auto 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         
-        /* تنسيق المواصفات الأصلي */
-        .specs-list { text-align: right; list-style: none; font-size: 18px; max-width: 750px; margin: 30px auto; }
+        .specs-container { background: white; padding: 40px; border-radius: 20px; margin-top: 30px; display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: center; }
+        .specs-list { text-align: right; list-style: none; font-size: 18px; flex: 1; min-width: 280px; }
         .specs-list li { margin-bottom: 15px; padding-right: 35px; position: relative; line-height: 1.6; }
         .specs-list li::before { content: '✔'; position: absolute; right: 0; color: var(--primary); font-weight: bold; }
-        
-        .specs-static-img { max-width: 850px; width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
 
         .price-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
-        .p-card { background: white; padding: 35px; border-radius: 25px; width: 340px; box-shadow: 0 5px 25px rgba(0,0,0,0.06); border-top: 6px solid var(--primary); transition: var(--transition-smooth); }
+        .p-card { background: white; padding: 35px; border-radius: 25px; width: 340px; box-shadow: 0 5px 25px rgba(0,0,0,0.06); border-top: 6px solid var(--primary); transition: 0.3s; }
         .p-card:hover { transform: translateY(-10px); }
         .price-val { font-size: 42px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
         .unit-note { font-size: 14px; color: #666; font-weight: bold; margin-bottom: 20px; display: block; }
         
         .catalog-group { display: flex; flex-direction: column; gap: 12px; }
         .catalog-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border: 2px dashed var(--primary); color: var(--primary); text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: bold; transition: 0.3s; }
-        .catalog-btn:hover { background: var(--primary); color: white; border-style: solid; transform: translateY(-3px); }
+        .catalog-btn:hover { background: var(--primary); color: white; border-style: solid; }
 
         footer { background: var(--primary); color: white; padding: 60px 20px 30px; text-align: center; }
         .eng-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; margin-bottom: 15px; object-fit: cover; }
 
-        @media (max-width: 768px) { header { flex-direction: column; gap: 12px; } .hero { height: 70vh; } .section { padding: 40px 5%; } .p-card { width: 100%; } }
+        @media (max-width: 768px) { .hero { height: 70vh; } .section { padding: 40px 5%; } .p-card { width: 100%; } }
     </style>
 </head>
 <body>
@@ -97,11 +70,8 @@
     </div>
 
     <header>
-        <div class="header-brand">
-            <img src="image_6.png" alt="TreeHouse Logo" class="logo-img">
-            <span class="brand-name">Tree House</span>
-        </div>
-        <a href="faq.html" class="faq-nav-btn">الأسئلة الشائعة <i class="fas fa-question-circle"></i></a>
+        <img src="image_6.png" alt="TreeHouse Logo" class="logo-img">
+        <span class="brand-name">Tree House</span>
     </header>
 
     <section class="hero">
@@ -121,19 +91,15 @@
     </section>
 
     <section class="section reveal">
-        <h2 style="color: var(--primary); margin-bottom: 25px;">لماذا تختار Tree House؟</h2>
-        <ul class="specs-list">
-            <li><strong>ضمان حقيقي:</strong> 10 سنوات ضد عيوب الصناعة مع صيانة مدى الحياة.</li>
-            <li><strong>شاسيه كونتر:</strong> جود وود (Good Wood) / فانيا / فيرست وود - طبقتين HPL أبيض.</li>
-            <li><strong>إكسسوارات عالمية:</strong> مفصلات إيطالي أو إسباني Soft Close لحركة سلسة.</li>
-            <li><strong>متانة فائقة:</strong> تعليق علوي وأرجل سفلية تركية أصلية.</li>
-            <li><strong>وزر اسود ستانلس:</strong> مضاد للبكتيريا ومقاوم للمياه، سهل الفك والتركيب.</li>
-        </ul>
-        
-        <img src="image_6.png" alt="Tree House Design" class="specs-static-img">
-
-        <div style="margin-top: 35px;">
-            <a href="faq.html" style="color: var(--primary); text-decoration: none; font-weight: 900; font-size: 1.1rem; border-bottom: 2px solid var(--primary);">إقرأ دليل الأسئلة الشائعة من هنا <i class="fas fa-external-link-alt"></i></a>
+        <h2 style="color: var(--primary); margin-bottom: 35px;">لماذا تختار Tree House؟</h2>
+        <div class="specs-container">
+            <ul class="specs-list">
+                <li><strong>ضمان حقيقي:</strong> 10 سنوات ضد عيوب الصناعة مع صيانة مدى الحياة.</li>
+                <li><strong>شاسيه كونتر:</strong> جود وود (Good Wood) / فانيا / فيرست وود - طبقتين HPL أبيض.</li>
+                <li><strong>إكسسوارات عالمية:</strong> مفصلات إيطالي أو إسباني Soft Close لحركة سلسة.</li>
+                <li><strong>متانة فائقة:</strong> تعليق علوي وأرجل سفلية تركية أصلية.</li>
+                <li><strong>وزر اسود ستانلس:</strong> مضاد للبكتيريا ومقاوم للمياه، سهل الفك والتركيب.</li>
+            </ul>
         </div>
     </section>
 
@@ -146,9 +112,14 @@
                 <h3>HPL & PVC</h3>
                 <span class="price-val">5700</span>
                 <span class="unit-note">جنيه / م²</span>
+                
                 <div class="catalog-group">
-                    <a href="https://drive.google.com/file/d/1i2MCj95G2tBfLhLKPQQJv7dSP_36daiU/view?usp=sharing" target="_blank" class="catalog-btn"><i class="fas fa-file-pdf"></i> كتالوج Greenlam HPL</a>
-                    <a href="https://drive.google.com/file/d/1doYBtI6Rmd2rP4u0ajxEtepfCk8qpUuK/view?usp=drive_link" target="_blank" class="catalog-btn"><i class="fas fa-file-pdf"></i> كتالوج Stillay PVC</a>
+                    <a href="https://drive.google.com/file/d/1i2MCj95G2tBfLhLKPQQJv7dSP_36daiU/view?usp=sharing" target="_blank" class="catalog-btn">
+                        <i class="fas fa-file-pdf"></i> كتالوج Greenlam HPL
+                    </a>
+                    <a href="https://drive.google.com/file/d/1doYBtI6Rmd2rP4u0ajxEtepfCk8qpUuK/view?usp=drive_link" target="_blank" class="catalog-btn">
+                        <i class="fas fa-file-pdf"></i> كتالوج Stillay PVC
+                    </a>
                 </div>
             </div>
 
@@ -156,8 +127,11 @@
                 <h3 style="color: var(--gold);">Polylac</h3>
                 <span class="price-val" style="color: var(--gold);">7200</span>
                 <span class="unit-note">جنيه / م²</span>
+                
                 <div class="catalog-group">
-                    <a href="https://drive.google.com/file/d/1r8y7JBq8wgZ1BKJVL07K-VbIcv1yyXlv/view?usp=sharing" target="_blank" class="catalog-btn" style="border-color: var(--gold); color: var(--gold);"><i class="fas fa-file-pdf"></i> كتالوج Gizir Polylac</a>
+                    <a href="https://drive.google.com/file/d/1r8y7JBq8wgZ1BKJVL07K-VbIcv1yyXlv/view?usp=sharing" target="_blank" class="catalog-btn" style="border-color: var(--gold); color: var(--gold);">
+                        <i class="fas fa-file-pdf"></i> كتالوج Gizir Polylac
+                    </a>
                 </div>
             </div>
         </div>
@@ -168,19 +142,26 @@
             <img src="abdelrahman_moetaz.jpg" alt="Engineer" class="eng-img">
             <p style="font-size: 24px; font-weight: 800; margin-bottom: 8px;">بإشراف م/ عبدالرحمن معتز</p>
             <p style="margin-bottom: 10px;">📍 التجمع الخامس - مول بزنس بلس - شارع التسعين الشمالي</p>
+            
             <div style="margin-top: 15px;">
                 <a href="tel:01554872957" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); padding: 12px 25px; border-radius: 50px; color: white; text-decoration: none; font-size: 22px; font-weight: bold; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;">
                     <i class="fas fa-phone-alt"></i> 01554872957
                 </a>
             </div>
         </div>
+        
         <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.2); margin: 30px auto 20px; max-width: 70%;">
-        <div class="copyright" style="font-size: 13px; opacity: 0.7;">&copy; 2026 جميع الحقوق محفوظة لشركة <strong>Tree House Kitchens</strong></div>
+
+        <div class="copyright" style="font-size: 13px; opacity: 0.7;">
+            &copy; 2026 جميع الحقوق محفوظة لشركة <strong>Tree House Kitchens</strong>
+        </div>
     </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>

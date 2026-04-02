@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TreeHouse Kitchens | Smart Design</title>
+    
+    <link rel="icon" type="image/png" href="image_6.png">
+    <link rel="apple-touch-icon" href="image_6.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -23,9 +27,22 @@
         .social-btn { width: 55px; height: 55px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.4s; text-decoration: none; }
         .social-btn:hover { transform: scale(1.1); }
 
-        header { background: #f5f5dc; padding: 10px 5%; display: flex; flex-direction: row; justify-content: center; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; gap: 15px; }
+        /* تعديل الهيدر لضمان ظهور اللوجو والاسم بجانب بعضهما */
+        header { 
+            background: #f5f5dc; 
+            padding: 10px 5%; 
+            display: flex; 
+            flex-direction: row; 
+            justify-content: center; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            gap: 15px; 
+        }
+        .logo-img { height: 50px; width: auto; object-fit: contain; }
         .brand-name { font-size: clamp(20px, 5vw, 28px); font-weight: 900; color: var(--primary); text-transform: uppercase; }
-        .logo-img { max-height: 50px; width: auto; }
 
         .hero { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #1a1a1a; }
         .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('ABDO.jpg'); background-size: cover; background-position: center; z-index: 1; }
@@ -47,7 +64,6 @@
         .price-val { font-size: 42px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
         .unit-note { font-size: 14px; color: #666; font-weight: bold; margin-bottom: 20px; display: block; }
         
-        /* تنسيق الأزرار داخل المربع */
         .catalog-group { display: flex; flex-direction: column; gap: 12px; }
         .catalog-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border: 2px dashed var(--primary); color: var(--primary); text-decoration: none; border-radius: 12px; font-size: 14px; font-weight: bold; transition: 0.3s; }
         .catalog-btn:hover { background: var(--primary); color: white; border-style: solid; }

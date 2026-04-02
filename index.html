@@ -47,39 +47,27 @@
             justify-content: center; 
             font-size: 24px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            transition: 0.4s; 
             text-decoration: none;
         }
-        .social-btn:hover { transform: scale(1.2) rotate(10deg); }
-        .wa-btn:hover { background: #25d366; color: white !important; }
-        .fb-btn:hover { background: #1877f2; color: white !important; }
-        .tk-btn:hover { background: #000; color: white !important; }
+        .social-btn:hover { transform: scale(1.1) rotate(5deg); }
 
-        /* --- الهيدر المعدل: اللوجو والاسم بجانب بعضهما --- */
+        /* الهيدر: اللوجو والاسم بجانب بعضهما */
         header { 
             background: #f5f5dc; 
             padding: 10px 5%; 
             display: flex; 
-            flex-direction: row; /* جعل العناصر أفقية */
+            flex-direction: row;
             justify-content: center; 
             align-items: center; 
             box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
-            gap: 15px; /* المسافة بين اللوجو والاسم */
+            gap: 15px;
         }
-        .brand-name { 
-            font-size: clamp(20px, 5vw, 28px); 
-            font-weight: 900; 
-            color: var(--primary); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
-        .logo-img { 
-            max-height: 50px; 
-            width: auto; 
-        }
+        .brand-name { font-size: clamp(20px, 5vw, 28px); font-weight: 900; color: var(--primary); text-transform: uppercase; }
+        .logo-img { max-height: 50px; width: auto; }
 
         /* الهيرو */
         .hero {
@@ -100,7 +88,7 @@
             z-index: 1;
         }
         .hero-content { position: relative; z-index: 2; text-align: center; color: white; padding: 20px; }
-        .hero h1 { font-size: clamp(30px, 8vw, 65px); font-weight: 900; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
+        .hero h1 { font-size: clamp(35px, 8vw, 65px); font-weight: 900; text-shadow: 2px 2px 15px rgba(0,0,0,0.7); }
         .btn-booking { background: var(--primary); color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 25px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 
         /* الأقسام */
@@ -108,40 +96,44 @@
         .gallery-container { max-width: 850px; margin: 30px auto 0; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         
         .specs-container { 
-            background: white; padding: 30px; border-radius: 20px; margin-top: 30px; 
+            background: white; padding: 40px; border-radius: 20px; margin-top: 30px; 
             display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; 
             align-items: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
         }
-        .specs-img { width: 100%; max-width: 450px; border-radius: 12px; }
         .specs-list { text-align: right; list-style: none; font-size: 18px; flex: 1; min-width: 280px; }
-        .specs-list li { margin-bottom: 12px; padding-right: 30px; position: relative; line-height: 1.6; }
-        .specs-list li::before { content: '✔'; position: absolute; right: 0; color: var(--primary); font-weight: bold; }
+        .specs-list li { margin-bottom: 15px; padding-right: 35px; position: relative; line-height: 1.6; }
+        .specs-list li::before { content: '✔'; position: absolute; right: 0; color: var(--primary); font-weight: bold; font-size: 20px; }
 
         /* الكروت والأسعار */
-        .price-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-        .p-card { background: white; padding: 35px; border-radius: 15px; width: 300px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 5px solid var(--primary); position: relative; }
-        .price-val { font-size: 42px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
-        .unit-note { font-size: 14px; color: #666; font-weight: bold; margin-bottom: 15px; display: block; }
-        .warranty-badge { background: #fff3e0; color: #e65100; font-size: 12px; padding: 4px 10px; border-radius: 5px; font-weight: 900; margin-top: 10px; display: inline-block; border: 1px solid #ffcc80; }
+        .price-cards { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px; }
+        .p-card { background: white; padding: 35px; border-radius: 20px; width: 320px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 6px solid var(--primary); position: relative; transition: 0.3s; }
+        .p-card:hover { transform: translateY(-10px); }
+        .price-val { font-size: 45px; font-weight: 800; color: var(--primary); display: block; margin: 10px 0; }
+        .unit-note { font-size: 14px; color: #666; font-weight: bold; margin-bottom: 20px; display: block; }
+        .warranty-badge { background: #fff3e0; color: #e65100; font-size: 13px; padding: 5px 12px; border-radius: 6px; font-weight: 900; margin-bottom: 20px; display: inline-block; border: 1px solid #ffcc80; }
+        
+        /* زر الكتالوج */
+        .catalog-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border: 2px dashed var(--primary); color: var(--primary); text-decoration: none; border-radius: 10px; font-size: 15px; font-weight: bold; transition: 0.3s; }
+        .catalog-btn:hover { background: var(--primary); color: white; border-style: solid; }
 
-        footer { background: var(--primary); color: white; padding: 50px 20px 20px; text-align: center; }
-        .eng-img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid white; margin-bottom: 15px; object-fit: cover; }
+        /* الفوتر */
+        footer { background: var(--primary); color: white; padding: 60px 20px 20px; text-align: center; }
+        .eng-img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid white; margin-bottom: 15px; object-fit: cover; }
         .copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 14px; opacity: 0.8; }
 
         @media (max-width: 768px) {
-            .hero { height: 65vh; }
+            .hero { height: 70vh; }
             .section { padding: 40px 5%; }
-            .social-btn { width: 48px; height: 48px; font-size: 20px; }
-            header { gap: 10px; } /* تقليل المسافة في الموبايل */
+            header { gap: 10px; }
         }
     </style>
 </head>
 <body>
 
     <div class="floating-social">
-        <a href="https://wa.me/201554872957" class="social-btn wa-btn" style="color: #25d366;"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/share/18H9nt8Jy6/" class="social-btn fb-btn" style="color: #1877f2;"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.tiktok.com/@treehousekitchens" class="social-btn tk-btn" style="color: #000;"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/201554872957" class="social-btn" style="color: #25d366;"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/18H9nt8Jy6/" class="social-btn" style="color: #1877f2;"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.tiktok.com/@treehousekitchens" class="social-btn" style="color: #000;"><i class="fab fa-tiktok"></i></a>
     </div>
 
     <header>
@@ -153,15 +145,15 @@
         <div class="hero-bg"></div>
         <div class="hero-content reveal">
             <h1>TREE HOUSE KITCHENS</h1>
-            <p style="font-size: 1.3rem; font-weight: 300;">المطبخ الذكي المستوحى من الطبيعة</p>
-            <a href="booking.html" class="btn-booking">احجز معاينة الآن</a>
+            <p style="font-size: 1.4rem; font-weight: 300;">المطبخ الذكي المستوحى من الطبيعة</p>
+            <a href="https://wa.me/201554872957" class="btn-booking">احجز معاينة الآن</a>
         </div>
     </section>
 
     <section class="section reveal" style="background-color: #f9f9f9;">
-        <h2>معرض أعمالنا 📸</h2>
+        <h2 style="margin-bottom: 30px;">معرض أعمالنا 📸</h2>
         <div class="gallery-container">
-            <iframe width="100%" height="450" 
+            <iframe width="100%" height="480" 
                 src="https://www.youtube.com/embed/WUpZKvYz1gE" 
                 loading="lazy" frameborder="0" allowfullscreen>
             </iframe>
@@ -169,16 +161,15 @@
     </section>
 
     <section class="section reveal">
-        <h2 style="color: var(--primary); margin-bottom: 30px;">لماذا تختار Tree House؟</h2>
+        <h2 style="color: var(--primary); margin-bottom: 35px;">لماذا تختار Tree House؟</h2>
         <div class="specs-container">
-            <img src="image_5.jpeg" alt="Kitchen Design" class="specs-img">
             <ul class="specs-list">
-                <li><strong>ضمان حقيقي:</strong> 10 سنوات ضد عيوب الصناعة مع صيانة مدى الحياة</li>
-                <li><strong>شاسيه كونتر:</strong> جود وود (Good Wood) / فانيه / فيرست وود - طبقتين HPL أبيض</li>
-                <li><strong>إكسسوارات عالمية:</strong> مفصلات إيطالي أو إسباني Soft Close لحركة سلسة</li>
-                <li><strong>متانة فائقة:</strong> تعليق علوي وأرجل سفلية تركية أصلية</li>
-                <li><strong>وزر ستانلس:</strong> مضاد للبكتيريا ومقاوم للمياه، سهل الفك والتركيب</li>
-                <li><strong>تصميم متكامل:</strong> مقابض أنيقة وتفاصيل عصرية</li>
+                <li><strong>ضمان حقيقي:</strong> 10 سنوات ضد عيوب الصناعة مع صيانة مدى الحياة.</li>
+                <li><strong>شاسيه كونتر:</strong> جود وود (Good Wood) / فانيا / فيرست وود - طبقتين HPL أبيض.</li>
+                <li><strong>إكسسوارات عالمية:</strong> مفصلات إيطالي أو إسباني Soft Close لحركة سلسة.</li>
+                <li><strong>متانة فائقة:</strong> تعليق علوي وأرجل سفلية تركية أصلية.</li>
+                <li><strong>وزر ستانلس:</strong> مضاد للبكتيريا ومقاوم للمياه، سهل الفك والتركيب.</li>
+                <li><strong>تصميم متكامل:</strong> مقابض أنيقة وتفاصيل عصرية تناسب ذوقك.</li>
             </ul>
         </div>
     </section>
@@ -186,18 +177,28 @@
     <section class="section reveal" style="background-color: #efefc5;">
         <h2 style="margin-bottom: 10px;">أسعار الخامات</h2>
         <p style="color: var(--primary); font-weight: bold; margin-bottom: 30px;">(الحساب بالمتر المربع وليس الطولي لضمان الشفافية)</p>
+        
         <div class="price-cards">
             <div class="p-card">
                 <h3>HPL - PVC</h3>
                 <span class="price-val">5700</span>
                 <span class="unit-note">جنيه / م²</span>
                 <div class="warranty-badge">🛡 ضمان 10 سنوات</div>
+                
+                <a href="https://drive.google.com/file/d/1i2MCj95G2tBfLhLKPQQJv7dSP_36daiU/view?usp=sharing" target="_blank" class="catalog-btn">
+                    <i class="fas fa-file-pdf"></i> عرض كتالوج HPL
+                </a>
             </div>
+
             <div class="p-card" style="border-top-color: var(--gold);">
                 <h3 style="color: var(--gold);">Polylac</h3>
                 <span class="price-val" style="color: var(--gold);">7200</span>
                 <span class="unit-note">جنيه / م²</span>
                 <div class="warranty-badge">🛡 ضمان 10 سنوات</div>
+                
+                <a href="https://drive.google.com/file/d/1r8y7JBq8wgZ1BKJVL07K-VbIcv1yyXlv/view?usp=sharing" target="_blank" class="catalog-btn" style="border-color: var(--gold); color: var(--gold);">
+                    <i class="fas fa-file-pdf"></i> عرض كتالوج Polylac
+                </a>
             </div>
         </div>
     </section>
@@ -205,9 +206,9 @@
     <footer>
         <div class="reveal">
             <img src="abdelrahman_moetaz.jpg" alt="Engineer" class="eng-img">
-            <p style="font-size: 22px; font-weight: 800;">بإشراف م/ عبدالرحمن معتز</p>
-            <p style="margin-top: 10px;">📍 التجمع الخامس - شارع التسعين الشمالي - مول بزنس بلس (أمام ماكسيم مول)</p>
-            <p style="font-size: 20px; font-weight: bold; margin-top: 5px;">📱 01554872957</p>
+            <p style="font-size: 24px; font-weight: 800; margin-bottom: 5px;">بإشراف م/ عبدالرحمن معتز</p>
+            <p style="opacity: 0.9; margin-bottom: 15px;">📍 التجمع الخامس - مول بزنس بلس - شارع التسعين الشمالي (أمام ماكسيم مول)</p>
+            <p style="font-size: 22px; font-weight: bold;">📱 01554872957</p>
         </div>
         
         <div class="copyright">
@@ -222,7 +223,7 @@
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>

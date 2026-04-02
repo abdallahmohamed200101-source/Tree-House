@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل Tree House | إجابات لكل استفساراتك</title>
+    
+    <link rel="icon" type="image/png" href="image_6.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --gold: #d4a017;
+            --bg-light: #f5f5dc;
+            --text-dark: #333;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg-light); 
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header { 
+            background: white; 
+            padding: 20px 5%; 
+            text-align: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .container { 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+
+        .faq-header { text-align: center; margin-bottom: 40px; }
+        .faq-header h1 { color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        .faq-header p { color: #666; font-size: 1.1rem; }
+
+        /* ستايل الأكورديون */
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--gold);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #fafafa;
+        }
+
+        .faq-answer p {
+            padding: 20px;
+            color: #555;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* القيمة دي تتعدل حسب طول النص */
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="image_6.png" alt="Logo" style="height: 50px;">
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+
+        <div class="faq-header">
+            <h1>إجابات تهمك قبل ما تبدأ مطبخك</h1>
+            <p>جمعنا لك أكتر الأسئلة اللي العملاء بيسألوها عشان تاخد قرارك وأنت مطمن.</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                ليه Tree House بتستخدم شاسيه كونتر مش MDF؟
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>لأن مطبخك معرض للرطوبة والمياه، والكونتر (خصوصاً جود وود) بيتحمل ضغط المياه وعمر الافتراضي أطول بكتير من الـ MDF اللي ممكن ينفش ويبوظ مع الوقت.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                يعني إيه ضمان 10 سنين "حقيقي"؟
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>يعني لو حصل أي عيب صناعة في الخشب أو الإكسسوارات خلال 10 سنين، بنقوم بالصيانة أو الاستبدال فوراً. ده التزام منا بجودة الخامات اللي بنستخدمها.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                المعاينة والرفع المقاسي مجانية؟
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>نعم، بنبعت مهندس متخصص يرفع المقاسات ويناقش معاك التوزيع الأمثل للأجهزة والإضاءة مجاناً عند التعاقد.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                إيه الفرق بين الـ HPL والـ Polylac في الاستخدام؟
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>الـ HPL عملي جداً ومقاوم للخدش والحرارة بامتياز، أما الـ Polylac بيدي لمعة مراية وشكل ديكوري فخم جداً مع حماية عالية من الخدوش برضه، الاختيار بيعتمد على ذوقك والميزانية.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة لشركة Tree House Kitchens &copy; 2026
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

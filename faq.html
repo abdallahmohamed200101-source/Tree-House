@@ -1,508 +1,516 @@
+
+محادثة مع Gemini
+أنت قلت
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل Tree House | إجابات لكل استفساراتك</title>
-    
-    <link rel="icon" type="image/png" href="image_6.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <style>
-        :root {
-            --primary: #2e7d32;
-            --gold: #d4a017;
-            --bg-light: #f5f5dc;
-            --text-dark: #333;
-            --danger: #d32f2f;
-        }
+    <meta charset="UTF-8">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: var(--bg-light); 
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* تعديل الهيدر ليكون اللوجو والاسم على نفس السوا */
-        header { 
-            background: white; 
-            padding: 15px 5%; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;         /* تفعيل التوزيع المرن */
-            align-items: center;    /* محاذاة العناصر رأسياً في المنتصف */
-            justify-content: center; /* توسيط المحتوى في الصفحة */
-            gap: 15px;             /* المسافة بين اللوجو والاسم */
-        }
+    <title>دليل Tree House | إجابات لكل استفساراتك</title>
 
-        header img {
-            height: 55px;
-            display: block;
-        }
+    
 
-        .brand-name { 
-            font-size: 1.8rem; 
-            font-weight: 800; 
-            color: var(--primary);
-            letter-spacing: 0.5px;
-            line-height: 1;        /* لضمان عدم وجود فراغ تحت النص */
-        }
+    <link rel="icon" type="image/png" href="image_6.png">
 
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        
-        .faq-header {
-            text-align: center;
-            padding: 30px 20px;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .faq-header i { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; }
-        .faq-header h1 { color: var(--primary); font-size: 2rem; font-weight: 700; margin-bottom: 15px; }
-        .faq-header p { color: #666; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .faq-item {
-            background: white;
-            margin-bottom: 15px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: 0.3s;
-        }
 
-        .faq-question {
-            padding: 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.15rem;
-            color: var(--primary);
-        }
 
-        .faq-question i { transition: transform 0.3s; color: var(--gold); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #fafafa; }
-        .answer-content { padding: 20px; border-top: 1px solid #eee; }
+    <style>
 
-        .faq-item.active .faq-answer { max-height: 2500px; }
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        :root {
 
-        .feature-card {
-            background: white;
-            border: 1px solid #efefef;
-            padding: 18px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
+            --primary: #2e7d32;
 
-        .feature-card h4 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
-        .feature-card h4 i { color: var(--gold); }
-        .feature-card p { font-size: 1rem; margin-bottom: 6px; color: #444; }
-        
-        .highlight-tag {
-            display: inline-block;
-            background: #e8f5e9;
-            color: var(--primary);
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
+            --gold: #d4a017;
 
-        .warning-label { 
-            background: #fff3f3; 
-            color: var(--danger); 
-            padding: 18px; 
-            border-radius: 10px; 
-            border-right: 6px solid var(--danger); 
-            font-weight: bold; 
-            margin-top: 25px;
-        }
+            --bg-light: #f5f5dc;
 
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+            --text-dark: #333;
 
-        footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
-    </style>
-</head>
-<body>
+            --danger: #d32f2f;
 
-    <header>
-        <img src="image_6.png" alt="Logo">
-        <span class="brand-name">Tree House</span>
-    </header>
-
-    <div class="container">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
-
-        <div class="faq-header">
-            <i class="far fa-comments"></i>
-            <h1>إحنا هنا عشان نساعدك تختار صح</h1>
-            <p>عارفين إن اختيار خامات المطبخ محير، عشان كدة جمعنا لك أهم الأسئلة اللي بتدور في بالك وإجابتها "بكل صراحة" من واقع خبرتنا في <strong>Tree House</strong></p>
-        </div>
-
-        <div class="faq-item active">
-            <div class="faq-question">
-                إيه الفرق التقني بين أنواع الضلف (HPL, PVC, Polylac, Alvic)؟
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
-                    
-                    <div class="feature-card">
-                        <span class="highlight-tag">بطل التحمل الشاق</span>
-                        <h4><i class="fas fa-layer-group"></i> الـ HPL</h4>
-                        <p>• <strong>الكبس:</strong> هو الخامة الوحيدة اللي بتتكبس على <strong>خشب كونتر</strong>، وده سر جودة "شاسيه" مطابخ Tree House</p>
-                        <p>• <strong>المظهر:</strong> بيمتاز بأجمل الألوان والخامات الخشبية الطبيعية</p>
-                        <p>• <strong>القوة:</strong> مقاوم فائق للحرارة والرطوبة والاحتكاك</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <span class="highlight-tag">الأعلى حماية</span>
-                        <h4><i class="fas fa-shield-virus"></i> الـ Polylac</h4>
-                        <p>• <strong>الحماية:</strong> مزود بـ <strong>طبقتين حماية</strong> خارجية ضد الخدش والبصمات</p>
-                        <p>• <strong>الكبس:</strong> ألواح مستوردة مكبوسة على <strong>MDF</strong> لضمان سطح ناعم تماماً كالمراية</p>
-                        <p>• <strong>المظهر:</strong> أعلى درجة نقاء لمعة (Mirror Finish) في السوق</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <span class="highlight-tag">مودرن وعملي</span>
-                        <h4><i class="fas fa-check-circle"></i> الـ PVC</h4>
-                        <p>• <strong>الحماية:</strong> مزود بـ <strong>طبقة حماية واحدة</strong> خارجية ضد الخدش</p>
-                        <p>• <strong>الكبس:</strong> خامة مستوردة جاهزة مكبوسة على <strong>MDF</strong></p>
-                        <p>• <strong>المظهر:</strong> تشكيلة ألوان سادة ولامعة متنوعة وعصرية</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <span class="highlight-tag">الفخامة الإسبانية</span>
-                        <h4><i class="fas fa-crown"></i> الـ Alvic</h4>
-                        <p>• <strong>الحماية:</strong> معالج بأحدث التقنيات ليكون <strong>مقاوم تماماً للبصمات والخدوش</strong></p>
-                        <p>• <strong>الكبس:</strong> خامة إسبانية فاخرة مكبوسة على <strong>MDF</strong> عالي الكثافة</p>
-                        <p>• <strong>المظهر:</strong> يتوفر بملمس حريري (Zenit) أو لمعة فائقة (Luxe)</p>
-                    </div>
-
-                     <div class="warning-label">
-                        💡 نصيحة Tree House: مهما كان اختيارك لنوع الضلفة الخارجي، إحنا بننصحك إن "شاسيه" المطبخ الداخلى لازم يكون HPL على كونتر لضمان أعلى مقاومة للمياه والرطوبة
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                ليه Tree House بتستخدم شاسيه كونتر مش MDF؟
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
-                    <p>ببساطة لأن المطبخ بيئة مياه ورطوبة. الـ MDF لو تعرض للمياه "بينفش" ويبوظ فوراً، لكن الكونتر (جود وود) بيتحمل ويعيش العمر كله</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                يعني إيه ضمان 10 سنين "حقيقي"؟
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
-                    <p>لو حصل أي عيب صناعة في الخشب أو الإكسسوارات خلال 10 سنين، بنقوم بالصيانة أو الاستبدال فوراً. ده التزامنا بجودة خاماتنا</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                المعاينة والرفع المقاسي مجانية؟
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
-                    <p>نعم، بنبعت مهندس متخصص يرفع المقاسات ويناقش معاك التوزيع الأمثل للأجهزة والإضاءة، وتكلفة المعاينة تُخصم بالكامل عند التعاقد</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        جميع الحقوق محفوظة لشركة Tree House Kitchens &copy; 2026
-    </footer>
-
-    <script>
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                
-                // إغلاق أي عنصر آخر مفتوح (اختياري لجعل الشكل أرقى)
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item) otherItem.classList.remove('active');
-                });
-
-                item.classList.toggle('active');
-            });
-        });
-    </script>
-</body>
-</html> (عايز اول ما اخش غالصفحه ملاقيش السوال مفتوح لوحده(
-            transition: var(--transition);
         }
 
-        .back-btn:hover { transform: translateX(8px); color: var(--gold); }
+
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { 
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+
+            background: var(--bg-light); 
+
+            color: var(--text-dark);
+
+            line-height: 1.6;
+
+        }
+
+
+
+        /* تعديل الهيدر ليكون اللوجو والاسم على نفس السوا */
+
+        header { 
+
+            background: white; 
+
+            padding: 15px 5%; 
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+            display: flex;         /* تفعيل التوزيع المرن */
+
+            align-items: center;    /* محاذاة العناصر رأسياً في المنتصف */
+
+            justify-content: center; /* توسيط المحتوى في الصفحة */
+
+            gap: 15px;             /* المسافة بين اللوجو والاسم */
+
+        }
+
+
+
+        header img {
+
+            height: 55px;
+
+            display: block;
+
+        }
+
+
+
+        .brand-name { 
+
+            font-size: 1.8rem; 
+
+            font-weight: 800; 
+
+            color: var(--primary);
+
+            letter-spacing: 0.5px;
+
+            line-height: 1;        /* لضمان عدم وجود فراغ تحت النص */
+
+        }
+
+
+
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        
 
         .faq-header {
+
             text-align: center;
+
             padding: 30px 20px;
+
             margin-bottom: 40px;
+
             border-bottom: 1px solid #e0e0e0;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .faq-header i { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-        /* --- FAQ Item Core Styles --- */
+        }
+
+        .faq-header i { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; }
+
+        .faq-header h1 { color: var(--primary); font-size: 2rem; font-weight: 700; margin-bottom: 15px; }
+
+        .faq-header p { color: #666; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+
+
+
         .faq-item {
+
             background: white;
-            margin-bottom: 18px;
-            border-radius: 15px;
+
+            margin-bottom: 15px;
+
+            border-radius: 12px;
+
             overflow: hidden;
+
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(25px);
+
+            transition: 0.3s;
+
         }
 
-        .faq-item.visible { opacity: 1; transform: translateY(0); }
-        .faq-item:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+
 
         .faq-question {
+
             padding: 22px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
             cursor: pointer;
+
             font-weight: bold;
-            font-size: 1.1rem;
+
+            font-size: 1.15rem;
+
             color: var(--primary);
-            transition: background 0.3s;
-            position: relative;
-            z-index: 2;
+
         }
 
-        .faq-question:hover { background: #f9fdf9; }
-        .faq-question i { transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); color: var(--gold); }
 
-        /* --- التعديل الجوهري للأنميشن (الفتح والقفل) --- */
-        .faq-answer { 
-            max-height: 0; 
-            overflow: hidden; 
-            background: #fafafa;
-            /* سرعة القفل تكون أسرع وأكثر مرونة */
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); 
-        }
 
-        .faq-item.active .faq-answer { 
-            max-height: 1000px; /* القيمة القصوى المتوقعة */
-            /* سرعة الفتح تكون أكثر انسيابية */
-            transition: max-height 0.8s cubic-bezier(1, 0, 1, 0);
-        }
+        .faq-question i { transition: transform 0.3s; color: var(--gold); }
+
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.6s ease-out; background: #fafafa; }
+
+        .answer-content { padding: 20px; border-top: 1px solid #eee; }
+
+
+
+        .faq-item.active .faq-answer { max-height: 2500px; }
 
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
-        /* محتوى الإجابة الداخلي */
-        .answer-content { 
-            padding: 20px; 
-            border-top: 1px solid #eee;
-            opacity: 0;
-            transform: translateY(-15px);
-            transition: all 0.4s ease;
-        }
 
-        .faq-item.active .answer-content {
-            opacity: 1;
-            transform: translateY(0);
-            transition-delay: 0.2s; /* يظهر المحتوى بعد بدء الفتح بقليل */
-        }
 
-        /* --- Cards & Details --- */
         .feature-card {
+
             background: white;
+
             border: 1px solid #efefef;
+
             padding: 18px;
-            border-radius: 12px;
+
+            border-radius: 10px;
+
             margin-bottom: 15px;
-            transition: var(--transition);
-            border-right: 4px solid transparent;
+
         }
 
-        .feature-card:hover {
-            transform: scale(1.02);
-            border-right-color: var(--gold);
-        }
 
-        .feature-card h4 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+
+        .feature-card h4 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; }
+
+        .feature-card h4 i { color: var(--gold); }
+
+        .feature-card p { font-size: 1rem; margin-bottom: 6px; color: #444; }
+
         
+
         .highlight-tag {
+
             display: inline-block;
+
             background: #e8f5e9;
+
             color: var(--primary);
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+
+            padding: 2px 10px;
+
+            border-radius: 4px;
+
+            font-size: 0.85rem;
+
             font-weight: bold;
-            margin-bottom: 10px;
+
+            margin-bottom: 8px;
+
         }
+
+
 
         .warning-label { 
+
             background: #fff3f3; 
+
             color: var(--danger); 
-            padding: 20px; 
-            border-radius: 12px; 
+
+            padding: 18px; 
+
+            border-radius: 10px; 
+
             border-right: 6px solid var(--danger); 
+
             font-weight: bold; 
+
             margin-top: 25px;
+
         }
 
+
+
+        .back-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--primary);
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
+
     </style>
+
 </head>
+
 <body>
 
+
+
     <header>
+
         <img src="image_6.png" alt="Logo">
+
         <span class="brand-name">Tree House</span>
+
     </header>
 
+
+
     <div class="container">
-        <a href="index.html" class="back-btn">
-            <i class="fas fa-arrow-right"></i> العودة للرئيسية
-        </a>
+
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+
+
 
         <div class="faq-header">
+
             <i class="far fa-comments"></i>
+
             <h1>إحنا هنا عشان نساعدك تختار صح</h1>
-            <p>عارفين إن اختيار خامات المطبخ محير، عشان كدة جمعنا لك أهم الأسئلة اللي بتدور في بالك وإجابتها بكل صراحة</p>
+
+            <p>عارفين إن اختيار خامات المطبخ محير، عشان كدة جمعنا لك أهم الأسئلة اللي بتدور في بالك وإجابتها "بكل صراحة" من واقع خبرتنا في <strong>Tree House</strong></p>
+
         </div>
 
-        <div class="faq-item">
+
+
+        <div class="faq-item active">
+
             <div class="faq-question">
-                إيه الفرق التقني بين أنواع المطابخ (HPL, PVC, Polylac, Alvic)؟
+
+                إيه الفرق التقني بين أنواع الضلف (HPL, PVC, Polylac, Alvic)؟
+
                 <i class="fas fa-chevron-down"></i>
+
             </div>
+
             <div class="faq-answer">
+
                 <div class="answer-content">
+
+                    
+
                     <div class="feature-card">
+
                         <span class="highlight-tag">بطل التحمل الشاق</span>
+
                         <h4><i class="fas fa-layer-group"></i> الـ HPL</h4>
-                        <p>• <strong>الكبس:</strong> يُكبس على <strong>خشب كونتر</strong>، سر متانة شاسيه Tree House.</p>
-                        <p>• <strong>القوة:</strong> مقاوم فائق للحرارة والرطوبة والاحتكاك.</p>
+
+                        <p>• <strong>الكبس:</strong> هو الخامة الوحيدة اللي بتتكبس على <strong>خشب كونتر</strong>، وده سر جودة "شاسيه" مطابخ Tree House</p>
+
+                        <p>• <strong>المظهر:</strong> بيمتاز بأجمل الألوان والخامات الخشبية الطبيعية</p>
+
+                        <p>• <strong>القوة:</strong> مقاوم فائق للحرارة والرطوبة والاحتكاك</p>
+
                     </div>
 
+
+
                     <div class="feature-card">
+
                         <span class="highlight-tag">الأعلى حماية</span>
+
                         <h4><i class="fas fa-shield-virus"></i> الـ Polylac</h4>
-                        <p>• <strong>الحماية:</strong> مزود بـ 2 طبقة حماية ضد الخدش والبصمات.</p>
-                        <p>• <strong>المظهر:</strong> مظهر مراية نقي (Mirror Finish).</p>
+
+                        <p>• <strong>الحماية:</strong> مزود بـ <strong>طبقتين حماية</strong> خارجية ضد الخدش والبصمات</p>
+
+                        <p>• <strong>الكبس:</strong> ألواح مستوردة مكبوسة على <strong>MDF</strong> لضمان سطح ناعم تماماً كالمراية</p>
+
+                        <p>• <strong>المظهر:</strong> أعلى درجة نقاء لمعة (Mirror Finish) في السوق</p>
+
                     </div>
 
-                    <div class="warning-label">
-                        💡 نصيحة Tree House: شاسيه المطبخ الداخلي لازم يكون HPL على كونتر لضمان العمر الطويل.
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                ليه Tree House بتستخدم شاسيه كونتر مش MDF؟
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
-                    <p>لأن المطبخ بيئة مياه ورطوبة. الـ MDF لو شرب مياه "بينفش" ويفرول، لكن الكونتر (نوع جود وود) بيتحمل الرطوبة ويعيش العمر كله.</p>
-                </div>
-            </div>
-        </div>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                يعني إيه ضمان 10 سنين "حقيقي"؟
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
-                    <p>يعني أي عيب صناعة يظهر في الخشب، القشرة، أو حتى الإكسسوارات (المفصلات والمجرى) خلال 10 سنين، بنقوم بالصيانة أو الاستبدال فوراً بدون أي تكلفة إضافية.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">
-                إزاي بنحسب مساحة المطبخ؟ (المتر المربع)
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-                <div class="answer-content">
                     <div class="feature-card">
-                        <span class="highlight-tag">الأدق والأكثر أمانة</span>
-                        <h4><i class="fas fa-border-all"></i> المتر المربع </h4>
-                        <p>بنحسب (الطول × العرض) الفعلي لكل وحدة. دي الطريقة العادلة لأنك بتدفع تمن الخامات اللي استخدمناها فعلياً في مطبخك فقط.</p>
+
+                        <span class="highlight-tag">مودرن وعملي</span>
+
+                        <h4><i class="fas fa-check-circle"></i> الـ PVC</h4>
+
+                        <p>• <strong>الحماية:</strong> مزود بـ <strong>طبقة حماية واحدة</strong> خارجية ضد الخدش</p>
+
+                        <p>• <strong>الكبس:</strong> خامة مستوردة جاهزة مكبوسة على <strong>MDF</strong></p>
+
+                        <p>• <strong>المظهر:</strong> تشكيلة ألوان سادة ولامعة متنوعة وعصرية</p>
+
                     </div>
+
+
+
+                    <div class="feature-card">
+
+                        <span class="highlight-tag">الفخامة الإسبانية</span>
+
+                        <h4><i class="fas fa-crown"></i> الـ Alvic</h4>
+
+                        <p>• <strong>الحماية:</strong> معالج بأحدث التقنيات ليكون <strong>مقاوم تماماً للبصمات والخدوش</strong></p>
+
+                        <p>• <strong>الكبس:</strong> خامة إسبانية فاخرة مكبوسة على <strong>MDF</strong> عالي الكثافة</p>
+
+                        <p>• <strong>المظهر:</strong> يتوفر بملمس حريري (Zenit) أو لمعة فائقة (Luxe)</p>
+
+                    </div>
+
+
+
+                     <div class="warning-label">
+
+                        💡 نصيحة Tree House: مهما كان اختيارك لنوع الضلفة الخارجي، إحنا بننصحك إن "شاسيه" المطبخ الداخلى لازم يكون HPL على كونتر لضمان أعلى مقاومة للمياه والرطوبة
+
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
+
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+
+                ليه Tree House بتستخدم شاسيه كونتر مش MDF؟
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+            <div class="faq-answer">
+
+                <div class="answer-content">
+
+                    <p>ببساطة لأن المطبخ بيئة مياه ورطوبة. الـ MDF لو تعرض للمياه "بينفش" ويبوظ فوراً، لكن الكونتر (جود وود) بيتحمل ويعيش العمر كله</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+
+                يعني إيه ضمان 10 سنين "حقيقي"؟
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+            <div class="faq-answer">
+
+                <div class="answer-content">
+
+                    <p>لو حصل أي عيب صناعة في الخشب أو الإكسسوارات خلال 10 سنين، بنقوم بالصيانة أو الاستبدال فوراً. ده التزامنا بجودة خاماتنا</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="faq-item">
+
+            <div class="faq-question">
+
+                المعاينة والرفع المقاسي مجانية؟
+
+                <i class="fas fa-chevron-down"></i>
+
+            </div>
+
+            <div class="faq-answer">
+
+                <div class="answer-content">
+
+                    <p>نعم، بنبعت مهندس متخصص يرفع المقاسات ويناقش معاك التوزيع الأمثل للأجهزة والإضاءة، وتكلفة المعاينة تُخصم بالكامل عند التعاقد</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
     </div>
 
+
+
     <footer>
+
         جميع الحقوق محفوظة لشركة Tree House Kitchens &copy; 2026
+
     </footer>
 
+
+
     <script>
-        // 1. أنيميشن ظهور العناصر عند التمرير (Scroll Reveal)
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
 
-        document.querySelectorAll('.faq-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // 2. التحكم الذكي في فتح وإغلاق الأسئلة (Smooth Logic)
         document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const currentItem = question.parentElement;
-                const isActive = currentItem.classList.contains('active');
 
-                // إغلاق أي سؤال آخر مفتوح حالياً لتجنب التزاحم
+            question.addEventListener('click', () => {
+
+                const item = question.parentElement;
+
+                
+
+                // إغلاق أي عنصر آخر مفتوح (اختياري لجعل الشكل أرقى)
+
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== currentItem) {
-                        otherItem.classList.remove('active');
-                    }
+
+                    if (otherItem !== item) otherItem.classList.remove('active');
+
                 });
 
-                // فتح أو إغلاق العنصر الذي تم الضغط عليه
-                if (isActive) {
-                    currentItem.classList.remove('active');
-                } else {
-                    currentItem.classList.add('active');
-                }
+
+
+                item.classList.toggle('active');
+
             });
+
         });
+
     </script>
+
 </body>
+
 </html>

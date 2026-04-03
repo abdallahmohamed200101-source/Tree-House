@@ -9,37 +9,85 @@
         :root {
             --primary-color: #2e7d32;
             --hover-color: #1b5e20;
-            --bg-color: #f5f5f5;
+            --bg-gradient: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             --white: #ffffff;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* أنيميشن دخول العناصر */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            background: var(--bg-gradient);
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #333;
         }
 
         .container {
             background: var(--white);
             max-width: 450px;
-            margin: 20px auto;
+            width: 100%;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease-out; /* دخول ناعم للحاوية */
         }
 
         h2 {
             text-align: center;
             color: var(--primary-color);
             margin-bottom: 25px;
-            font-size: 24px;
+            font-size: 26px;
+            position: relative;
+        }
+
+        /* خط جمالي تحت العنوان */
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 8px auto;
+            border-radius: 10px;
+        }
+
+        .note-box {
+            background: #e8f5e9;
+            border-right: 5px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #2e7d32;
+            animation: fadeInUp 1s ease-out 0.2s backwards; /* ظهور متأخر قليلاً */
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             text-align: right;
+            animation: fadeInUp 0.8s ease-out 0.3s backwards;
         }
 
         label {
@@ -52,71 +100,82 @@
 
         input, textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            padding: 14px;
+            border: 2px solid #eee;
+            border-radius: 12px;
             box-sizing: border-box;
             font-size: 15px;
-            transition: border-color 0.3s;
+            transition: var(--transition);
+            background-color: #fafafa;
         }
 
+        /* تأثير التفاعل مع الحقول */
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 5px rgba(46, 125, 50, 0.2);
-        }
-
-        .note-box {
-            background: #e8f5e9;
-            border-right: 5px solid var(--primary-color);
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 13px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #2e7d32;
+            background-color: #fff;
+            transform: translateY(-2px); /* رفعة بسيطة للحقل */
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
         }
 
         .button-group {
             display: flex;
             gap: 12px;
+            margin-top: 10px;
+            animation: fadeInUp 0.8s ease-out 0.5s backwards;
         }
 
         button {
             flex: 1;
             padding: 14px;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .btn-confirm {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #43a047);
             color: white;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
         }
 
         .btn-confirm:hover {
-            background-color: var(--hover-color);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-confirm:active {
+            transform: translateY(-1px);
         }
 
         .btn-back {
-            background-color: #f0f0f0;
-            color: #666;
+            background-color: #f5f5f5;
+            color: #777;
         }
 
         .btn-back:hover {
-            background-color: #e0e0e0;
+            background-color: #eeeeee;
+            color: #333;
+            transform: translateY(-2px);
         }
 
         small {
             display: block;
-            margin-top: 4px;
-            color: #888;
+            margin-top: 6px;
+            color: #999;
             font-size: 11px;
+            animation: fadeIn 1.5s forwards 0.8s;
+            opacity: 0;
+        }
+
+        /* تحسين شكل الـ placeholder */
+        ::placeholder {
+            color: #ccc;
+            font-size: 13px;
         }
     </style>
 </head>
@@ -127,7 +186,7 @@
 
     <div class="note-box">
         ⚠️ <b>ملاحظة هامة:</b><br>
-        تكلفة المعاينة يتم دفعها للمهندس عند الزيارة، و <b>تُخصم بالكامل</b> من إجمالي المبلغ عند البدء التعاقد 
+        تكلفة المعاينة يتم دفعها للمهندس عند الزيارة، و <b>تُخصم بالكامل</b> من إجمالي المبلغ عند التعاقد.
     </div>
 
     <div class="form-group">
@@ -163,17 +222,15 @@
 </div>
 
 <script>
-    // 1. منع اختيار تاريخ قديم (تلقائياً عند تحميل الصفحة)
+    // 1. منع اختيار تاريخ قديم
     window.onload = function() {
         const dateInput = document.getElementById('date');
         const now = new Date();
-        // تنسيق الوقت الحالي ليناسب input datetime-local
         now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
         dateInput.min = now.toISOString().slice(0, 16);
     };
 
     function submitForm() {
-        // سحب البيانات مع إزالة المسافات الزائدة
         const name = document.getElementById("name").value.trim();
         const phone = document.getElementById("phone").value.trim();
         const address = document.getElementById("address").value.trim();
@@ -186,17 +243,17 @@
             return;
         }
 
-        // 3. التحقق من صحة رقم الموبايل (11 رقم يبدأ بـ 01)
+        // 3. التحقق من صحة رقم الموبايل
         const phoneRegex = /^01[0125][0-9]{8}$/;
         if (!phoneRegex.test(phone)) {
             alert("يرجى إدخال رقم موبايل مصري صحيح مكون من 11 رقم.");
             return;
         }
 
-        // 4. تنسيق الوقت ليظهر بشكل جميل في الرسالة
+        // 4. تنسيق الوقت
         const formattedDate = dateValue.replace('T', ' الوقت: ');
 
-        // 5. تجهيز نص رسالة الواتساب
+        // 5. رسالة الواتساب
         const message = `*طلب حجز معاينة (TreeHouse Kitchens)*\n\n` +
                         `👤 *الاسم:* ${name}\n` +
                         `📞 *الموبايل:* ${phone}\n` +
@@ -206,7 +263,7 @@
                         `--------------------------\n` +
                         `💡 _العميل على علم بخصم تكلفة المعاينة عند التعاقد_`;
 
-        // 6. فتح واتساب
+        // 6. التوجيه لواتساب
         const whatsappNumber = "201554872957";
         const finalUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
         
@@ -214,7 +271,12 @@
     }
 
     function goBack() {
-        window.location.href = "index.html";
+        // إذا كان هناك صفحة سابقة سيعود إليها، وإلا يذهب لـ index.html
+        if (document.referrer) {
+            window.history.back();
+        } else {
+            window.location.href = "index.html";
+        }
     }
 </script>
 

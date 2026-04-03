@@ -28,18 +28,12 @@
             overflow-x: hidden;
         }
 
-        /* --- Animations Keyframes --- */
+        /* --- Animations --- */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* --- Header Styles --- */
         header { 
             background: white; 
             padding: 15px 5%; 
@@ -58,7 +52,6 @@
             font-size: 1.8rem; 
             font-weight: 800; 
             color: var(--primary);
-            letter-spacing: 0.5px;
         }
 
         .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
@@ -86,7 +79,7 @@
         
         .faq-header i { color: var(--gold); font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-        /* --- FAQ Items (Scroll Reveal Effect) --- */
+        /* --- FAQ Item Core Styles --- */
         .faq-item {
             background: white;
             margin-bottom: 18px;
@@ -94,15 +87,11 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             transition: var(--transition);
-            opacity: 0; /* يبدأ مخفي */
+            opacity: 0;
             transform: translateY(25px);
         }
 
-        .faq-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        .faq-item.visible { opacity: 1; transform: translateY(0); }
         .faq-item:hover { box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
 
         .faq-question {
@@ -115,24 +104,46 @@
             font-size: 1.1rem;
             color: var(--primary);
             transition: background 0.3s;
+            position: relative;
+            z-index: 2;
         }
 
         .faq-question:hover { background: #f9fdf9; }
-        .faq-question i { transition: transform 0.4s; color: var(--gold); }
+        .faq-question i { transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); color: var(--gold); }
 
+        /* --- التعديل الجوهري للأنميشن (الفتح والقفل) --- */
         .faq-answer { 
             max-height: 0; 
             overflow: hidden; 
-            transition: max-height 0.5s ease-in-out; 
-            background: #fafafa; 
+            background: #fafafa;
+            /* سرعة القفل تكون أسرع وأكثر مرونة */
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); 
         }
 
-        .faq-item.active .faq-answer { max-height: 2000px; }
+        .faq-item.active .faq-answer { 
+            max-height: 1000px; /* القيمة القصوى المتوقعة */
+            /* سرعة الفتح تكون أكثر انسيابية */
+            transition: max-height 0.8s cubic-bezier(1, 0, 1, 0);
+        }
+
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
-        .answer-content { padding: 20px; border-top: 1px solid #eee; }
+        /* محتوى الإجابة الداخلي */
+        .answer-content { 
+            padding: 20px; 
+            border-top: 1px solid #eee;
+            opacity: 0;
+            transform: translateY(-15px);
+            transition: all 0.4s ease;
+        }
 
-        /* --- Cards Inside FAQ --- */
+        .faq-item.active .answer-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.2s; /* يظهر المحتوى بعد بدء الفتح بقليل */
+        }
+
+        /* --- Cards & Details --- */
         .feature-card {
             background: white;
             border: 1px solid #efefef;
@@ -146,7 +157,6 @@
         .feature-card:hover {
             transform: scale(1.02);
             border-right-color: var(--gold);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .feature-card h4 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
@@ -170,13 +180,6 @@
             border-right: 6px solid var(--danger); 
             font-weight: bold; 
             margin-top: 25px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.01); }
-            100% { transform: scale(1); }
         }
 
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
@@ -195,9 +198,9 @@
         </a>
 
         <div class="faq-header">
-            <i class="far fa-comments animate__animated animate__bounceIn"></i>
+            <i class="far fa-comments"></i>
             <h1>إحنا هنا عشان نساعدك تختار صح</h1>
-            <p>عارفين إن اختيار خامات المطبخ محير، عشان كدة جمعنا لك أهم الأسئلة اللي بتدور في بالك وإجابتها "بكل صراحة" من واقع خبرتنا</p>
+            <p>عارفين إن اختيار خامات المطبخ محير، عشان كدة جمعنا لك أهم الأسئلة اللي بتدور في بالك وإجابتها بكل صراحة</p>
         </div>
 
         <div class="faq-item">
@@ -221,13 +224,6 @@
                         <p>• <strong>المظهر:</strong> مظهر مراية نقي (Mirror Finish).</p>
                     </div>
 
-                    <div class="feature-card">
-                        <span class="highlight-tag">الفخامة الإسبانية</span>
-                        <h4><i class="fas fa-crown"></i> الـ Alvic</h4>
-                        <p>• <strong>الكبس:</strong> خامة إسبانية فاخرة على MDF عالي الكثافة.</p>
-                        <p>• <strong>المظهر:</strong> يتوفر بملمس حريري أو لمعة فائقة.</p>
-                    </div>
-
                     <div class="warning-label">
                         💡 نصيحة Tree House: شاسيه المطبخ الداخلي لازم يكون HPL على كونتر لضمان العمر الطويل.
                     </div>
@@ -242,7 +238,7 @@
             </div>
             <div class="faq-answer">
                 <div class="answer-content">
-                    <p>لأن المطبخ بيئة مياه ورطوبة. الـ MDF لو شرب مياه "بينفش"، لكن الكونتر (جود وود) بيتحمل ويعيش العمر كله.</p>
+                    <p>لأن المطبخ بيئة مياه ورطوبة. الـ MDF لو شرب مياه "بينفش" ويفرول، لكن الكونتر (نوع جود وود) بيتحمل الرطوبة ويعيش العمر كله.</p>
                 </div>
             </div>
         </div>
@@ -254,14 +250,14 @@
             </div>
             <div class="faq-answer">
                 <div class="answer-content">
-                    <p>أي عيب صناعة في الخشب أو الإكسسوارات خلال 10 سنين، بنقوم بالصيانة أو الاستبدال فوراً بدون جدال.</p>
+                    <p>يعني أي عيب صناعة يظهر في الخشب، القشرة، أو حتى الإكسسوارات (المفصلات والمجرى) خلال 10 سنين، بنقوم بالصيانة أو الاستبدال فوراً بدون أي تكلفة إضافية.</p>
                 </div>
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question">
-                إزاي بنحسب مساحة المطبخ؟ (المتر المربع vs الطولي)
+                إزاي بنحسب مساحة المطبخ؟ (المتر المربع)
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
@@ -269,7 +265,7 @@
                     <div class="feature-card">
                         <span class="highlight-tag">الأدق والأكثر أمانة</span>
                         <h4><i class="fas fa-border-all"></i> المتر المربع </h4>
-                        <p>بنحسب (الطول × العرض) لكل وحدة. دي الطريقة العادلة لأنك بتدفع تمن الخامات الفعلية اللي استخدمناها بالمللي.</p>
+                        <p>بنحسب (الطول × العرض) الفعلي لكل وحدة. دي الطريقة العادلة لأنك بتدفع تمن الخامات اللي استخدمناها فعلياً في مطبخك فقط.</p>
                     </div>
                 </div>
             </div>
@@ -281,7 +277,7 @@
     </footer>
 
     <script>
-        // 1. أنيميشن ظهور العناصر عند السكرول
+        // 1. أنيميشن ظهور العناصر عند التمرير (Scroll Reveal)
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -295,17 +291,25 @@
             observer.observe(item);
         });
 
-        // 2. التحكم في فتح وإغلاق الأسئلة
+        // 2. التحكم الذكي في فتح وإغلاق الأسئلة (Smooth Logic)
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
-                const item = question.parentElement;
-                
-                // إغلاق أي سؤال آخر مفتوح
+                const currentItem = question.parentElement;
+                const isActive = currentItem.classList.contains('active');
+
+                // إغلاق أي سؤال آخر مفتوح حالياً لتجنب التزاحم
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item) otherItem.classList.remove('active');
+                    if (otherItem !== currentItem) {
+                        otherItem.classList.remove('active');
+                    }
                 });
 
-                item.classList.toggle('active');
+                // فتح أو إغلاق العنصر الذي تم الضغط عليه
+                if (isActive) {
+                    currentItem.classList.remove('active');
+                } else {
+                    currentItem.classList.add('active');
+                }
             });
         });
     </script>
